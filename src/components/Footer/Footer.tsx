@@ -9,7 +9,7 @@ const StyledFooter = styled.footer`
   align-items: center;
 `;
 
-const App: React.FC = () => {
+const Footer: React.FC = () => {
   return (
     <StyledFooter>
       <p>&copy; Jun Yamada 2018-2019 All rights reserved.</p>
@@ -17,4 +17,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Footer;

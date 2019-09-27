@@ -18,7 +18,7 @@ const Logo = styled(Typography)`
   padding-left: 1rem;
 `
 
-const App: React.FC = () => {
+const Header: React.FC = () => {
   return (
     <StyledAppBar position="static">
       <Toolbar>
@@ -32,4 +32,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Header;
