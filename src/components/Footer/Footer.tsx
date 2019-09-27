@@ -9,10 +9,14 @@ const StyledFooter = styled.footer`
   align-items: center;
 `;
 
+const Copyright = styled.p`
+  text-align: center;
+`;
+
 const Footer: React.FC = () => {
   return (
     <StyledFooter>
-      <p>&copy; Jun Yamada 2018-2019 All rights reserved.</p>
+      <Copyright>&copy; Programming Tube 2019 All rights reserved.</Copyright>
     </StyledFooter>
   );
 };
