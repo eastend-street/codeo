@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Grid from "@material-ui/core/Grid";
 
 const Content = styled.footer`
   height: 85vh;
@@ -18,9 +19,7 @@ const StyledH2 = styled.h2`
 const WrapMovies = styled.div``;
 
 const StyledIframe = styled.iframe`
-  margin: 1rem 1rem 1rem 0;
-  width: 560px;
-  height: 315px;
+  margin: 1rem;
   border: none;
 `;
 
@@ -30,13 +29,29 @@ const App: React.FC = () => {
       <EachCategory>
         <StyledH2>Python</StyledH2>
         <WrapMovies>
-          <StyledIframe
-            src="https://www.youtube.com/embed/Z1Yd7upQsXY"
-            // frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            // allowfullscreen
-            title="Z1Yd7upQsXY"
-          ></StyledIframe>
+          <Grid container>
+            <Grid item xs={4}>
+              <StyledIframe
+                src="https://www.youtube.com/embed/Z1Yd7upQsXY"
+                allow="fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                title="Z1Yd7upQsXY"
+              ></StyledIframe>
+            </Grid>
+            <Grid item xs={4}>
+              <StyledIframe
+                src="https://www.youtube.com/embed/_uQrJ0TkZlc"
+                allow="fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                title="Z1Yd7upQsXY"
+              ></StyledIframe>
+            </Grid>
+            <Grid item xs={4}>
+              <StyledIframe
+                src="https://www.youtube.com/embed/rfscVS0vtbw"
+                allow="fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                title="Z1Yd7upQsXY"
+              ></StyledIframe>
+            </Grid>
+          </Grid>
         </WrapMovies>
       </EachCategory>
       <EachCategory>
