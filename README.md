@@ -1,2 +1,2 @@
 # WIP: Programming Tube
-Programming tube is prgramming video searching website from YouTube.
+Programming tube is a website to search programming video from YouTube.
