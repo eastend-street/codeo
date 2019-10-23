@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         <IconButton edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
-        <Logo variant="h6">Programming Tube</Logo>
+        <Logo variant="h6">Codeal</Logo>
         {/* <Button color="inherit">Login</Button> */}
       </Toolbar>
     </StyledAppBar>
