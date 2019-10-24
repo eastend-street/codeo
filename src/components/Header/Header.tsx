@@ -9,22 +9,22 @@ import MenuIcon from "@material-ui/icons/Menu";
 const StyledAppBar = styled(AppBar)`
   && {
     color: #000;
-    background-color: #fafafa;
+    background-color: #fff;
     box-shadow: none;
   }
 `;
 
 const Logo = styled(Typography)`
-  padding-left: 1rem;
-`
+  && {
+    padding-left: 1rem;
+    font-size: 1.5rem;
+  }
+`;
 
 const Header: React.FC = () => {
   return (
     <StyledAppBar position="static">
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton>
         <Logo variant="h6">Codeal</Logo>
         {/* <Button color="inherit">Login</Button> */}
       </Toolbar>
