@@ -8,8 +8,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 const StyledAppBar = styled(AppBar)`
   && {
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #232c3b;
     box-shadow: none;
   }
 `;
@@ -18,6 +18,7 @@ const Logo = styled(Typography)`
   && {
     padding-left: 1rem;
     font-size: 1.5rem;
+    /* opacity: 0.5; */
   }
 `;
 

@@ -9,6 +9,8 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   font-family: sans-serif;
+  color: #fff;
+  background-color: #192231;
 `;
 
 ReactDOM.render(
