@@ -14,6 +14,7 @@ const EachCategory = styled.div`
 const StyledH2 = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 2rem;
+  opacity: 0.5;
 `;
 
 const Main: React.FC = () => {
