@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
   height: 10vh;
-  background-color: #fafafa;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +10,7 @@ const StyledFooter = styled.footer`
 
 const Copyright = styled.p`
   text-align: center;
+  opacity: 0.5;
 `;
 
 const Footer: React.FC = () => {
