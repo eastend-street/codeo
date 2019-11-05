@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavButton from "../NavButton/NavButton";
+import NavJSON from "../../json/nav.json";
 
 const Container = styled.div``;
 
@@ -17,6 +18,10 @@ const NavLi = styled.li`
   }
 `;
 
+const renderNav = () => {
+  const navData = JSON.parse(NavJSON);
+} 
+
 const Nav: React.FC = () => {
   return (
     <Container className="scroll-menu">
@@ -24,14 +29,30 @@ const Nav: React.FC = () => {
         <NavLi>
           <NavButton label="React" />
         </NavLi>
-        <NavLi>HTML</NavLi>
-        <NavLi>CSS</NavLi>
-        <NavLi>JavaScript</NavLi>
-        <NavLi>Python</NavLi>
-        <NavLi>Ruby</NavLi>
-        <NavLi>How to learn</NavLi>
-        <NavLi>Carrer</NavLi>
-        <NavLi>Most popular</NavLi>
+        <NavLi>
+          <NavButton label="HTML" />
+        </NavLi>
+        <NavLi>
+          <NavButton label="CSS" />
+        </NavLi>
+        <NavLi>
+          <NavButton label="JavaScript" />
+        </NavLi>
+        <NavLi>
+          <NavButton label="Python" />
+        </NavLi>
+        <NavLi>
+          <NavButton label="Ruby" />
+        </NavLi>
+        <NavLi>
+          <NavButton label="How to learn" />
+        </NavLi>
+        <NavLi>
+          <NavButton label="Carrer" />
+        </NavLi>
+        <NavLi>
+          <NavButton label="Most popular" />
+        </NavLi>
       </NavUl>
     </Container>
   );

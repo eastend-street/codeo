@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 type NavButtonProps = {
   label: string;
+  // link: string;
 };
 
 const NavButton: React.FC<NavButtonProps> = props => {
