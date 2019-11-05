@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavButton from "../NavButton/NavButton";
-import NavJSON from "../../json/nav.json";
+import NavJSON from "../../data/nav.json";
 
 const Container = styled.div``;
 
@@ -18,41 +18,25 @@ const NavLi = styled.li`
   }
 `;
 
-const renderNav = () => {
-  const navData = JSON.parse(NavJSON);
-} 
+type NavData = {
+  title: string;
+  link: string;
+};
 
 const Nav: React.FC = () => {
+  const renderNav = () => {
+    const navData: NavData[] = NavJSON;
+    return navData.map((eachData: NavData, index) => (
+      <NavLi key={index}>
+        <NavButton label={eachData.title} />
+      </NavLi>
+    ));
+  };
+
   return (
     <Container className="scroll-menu">
       <NavUl className="scroll-menu-inner">
-        <NavLi>
-          <NavButton label="React" />
-        </NavLi>
-        <NavLi>
-          <NavButton label="HTML" />
-        </NavLi>
-        <NavLi>
-          <NavButton label="CSS" />
-        </NavLi>
-        <NavLi>
-          <NavButton label="JavaScript" />
-        </NavLi>
-        <NavLi>
-          <NavButton label="Python" />
-        </NavLi>
-        <NavLi>
-          <NavButton label="Ruby" />
-        </NavLi>
-        <NavLi>
-          <NavButton label="How to learn" />
-        </NavLi>
-        <NavLi>
-          <NavButton label="Carrer" />
-        </NavLi>
-        <NavLi>
-          <NavButton label="Most popular" />
-        </NavLi>
+        {renderNav()}
       </NavUl>
     </Container>
   );
