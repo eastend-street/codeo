@@ -5,11 +5,11 @@ import VideoList from "../VideoList/VideoList";
 
 const Content = styled.div`
   min-height: 85vh;
-  padding: 2rem;
+  padding: 1rem 2rem;
 `;
 
 const EachCategory = styled.div`
-  padding: 1rem;
+  padding: 1rem 0;
 `;
 
 const Main: React.FC = () => {
