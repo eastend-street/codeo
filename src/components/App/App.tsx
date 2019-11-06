@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useReducer } from "react";
+import styled from "styled-components";
+
+import AppContext from "../../contexts/AppContext";
+import reducer from "../../reducers";
+
+import { Reset } from "styled-reset";
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+
+const StyledContainer = styled.div`
+  font-family: sans-serif;
+  color: #fff;
+  background-color: #232c3b;
+`;
 
 const App: React.FC = () => {
+  const initialState = {
+    videos: []
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+  
   return (
-      <React.Fragment>
-        <div>aaaaaaaaaaaa</div>
-      </React.Fragment>
+    <AppContext.Provider value={{ state, dispatch }}>
+      <Reset />
+      <StyledContainer>
+        <Header />
+        <Main />
+        <Footer />
+      </StyledContainer>
+    </AppContext.Provider>
   );
-}
+};
 
 export default App;

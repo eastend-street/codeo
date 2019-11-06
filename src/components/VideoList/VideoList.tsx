@@ -1,20 +1,18 @@
-import React from "react";
+import React, { useEffect, useContext }  from "react";
+import AppContext from "../../contexts/AppContext";
+
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import Video from "../Video/Video";
 
+
 const Content = styled.div``;
 
-// const StyledIframe = styled.iframe`
-//   border: none;
-//   width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// `;
-
 const VideoList: React.FC = () => {
+  const { dispatch } = useContext(AppContext);
+  useEffect(() => {
+    ;
+  });
   return (
     <Content>
       <Grid container>
