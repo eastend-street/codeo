@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import AppContext from "../../contexts/AppContext";
-import { getVideos } from "../../actions";
+import axios from "axios";
+import { GET_VIDEOS } from "../../actions";
 
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
@@ -11,7 +12,20 @@ const Content = styled.div``;
 const VideoList: React.FC = () => {
   const { dispatch } = useContext(AppContext);
   useEffect(() => {
-    getVideos(dispatch);
+    async function getVideos() {
+      const response = await axios({
+        method: "get",
+        url: "https://www.googleapis.com/youtube/v3/search",
+        params: {
+          q: "react",
+          key: process.env.REACT_APP_YOUTUBE_API_KEY,
+          part: "snippet"
+        }
+      });
+      dispatch({ type: GET_VIDEOS, response });
+    }
+
+    getVideos();
   });
 
   return (
