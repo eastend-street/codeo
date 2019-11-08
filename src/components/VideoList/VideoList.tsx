@@ -5,14 +5,21 @@ import { getVideos } from "../../actions";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import Video from "../Video/Video";
+import videos from "../../reducers/videos";
 
 const Content = styled.div``;
 
 const VideoList: React.FC = () => {
-  const { dispatch } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   useEffect(() => {
-    getVideos(dispatch);
+    // getVideos(dispatch);
   });
+
+  const renderVideos = (videos: any) => {
+    videos.map((video: any) => {
+      return <div>{video.id}</div>;
+    });
+  };
 
   return (
     <Content>
