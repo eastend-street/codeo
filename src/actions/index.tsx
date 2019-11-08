@@ -2,11 +2,6 @@ import axios from "axios";
 
 export const GET_VIDEOS = "GET_VIDEOS";
 
-export const testFunc = () => {
-  console.log("inside of testfunc!");
-  return "aaaa";
-};
-
 export const getVideos = async (dispatch: any) => {
   const response = await axios({
     method: "get",
