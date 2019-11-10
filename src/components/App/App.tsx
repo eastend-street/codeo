@@ -17,10 +17,12 @@ const StyledContainer = styled.div`
 
 const App: React.FC = () => {
   const initialState = {
-    videos: []
+    videos: {
+      items: []
+    }
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  
+
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <Reset />

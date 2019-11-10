@@ -12,13 +12,15 @@ const Content = styled.div``;
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   useEffect(() => {
-    // getVideos(dispatch);
-  });
+    getVideos(dispatch);
+  }, []);
 
-  const renderVideos = (videos: any) => {
-    videos.map((video: any) => {
-      return <div>{video.id}</div>;
-    });
+  const renderVideos: React.FC = () => {
+    console.log(state);
+    return <div>aaa</div>;
+    // videos.map((video: any) => {
+    //   return <div>{video.id}</div>;
+    // });
   };
 
   return (
@@ -28,6 +30,18 @@ const VideoList: React.FC = () => {
           <Video />
         </Grid>
       </Grid>
+      <div>
+        {console.log(state.videos.items)}
+        {state.videos.items.map((video: any, index: number) => {
+          console.log(video.snippet.title);
+          return (
+            <div key={index}>
+              <div>{video.snippet.title}</div>
+              <div>{video.snippet.thumbnails.default.url}</div>;
+            </div>
+          );
+        })}
+      </div>
     </Content>
   );
 };
