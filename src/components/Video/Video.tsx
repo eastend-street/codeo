@@ -20,11 +20,15 @@ const Thumbnail = styled.img`
 //   left: 0;
 // `;
 
+type VideoProps = {
+  url: any
+}
+
 const Video: React.FC = () => {
   return (
     <Content>
       <Thumbnail
-        src="http://img.youtube.com/vi/Z1Yd7upQsXY/hqdefault.jpg"
+        src="sss"
         alt="Z1Yd7upQsXY"
       />
     </Content>

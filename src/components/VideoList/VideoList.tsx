@@ -37,7 +37,7 @@ const VideoList: React.FC = () => {
           return (
             <div key={index}>
               <div>{video.snippet.title}</div>
-              <div>{video.snippet.thumbnails.default.url}</div>;
+              <Video url={video.snippet.thumbnails.default.url}/>
             </div>
           );
         })}
