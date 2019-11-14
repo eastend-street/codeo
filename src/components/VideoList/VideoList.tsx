@@ -8,6 +8,10 @@ import Video from "../Video/Video";
 
 const Content = styled.div``;
 
+const VideoTitle = styled.h3`
+  text-align: center;
+`
+
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   useEffect(() => {
@@ -33,9 +37,12 @@ const VideoList: React.FC = () => {
         {state.videos.items.map((video: any, index: number) => {
           return (
             <Grid item xs={12} sm={6} md={3} key={index}>
-              <div>
-                <Video url={video.snippet.thumbnails.high.url} />
-                <div>{video.snippet.title}</div>
+              <div className="wrap-video">
+                <Video 
+                url={video.snippet.thumbnails.medium.url} 
+                title={video.snippet.title}
+                />
+                <VideoTitle>{video.snippet.title}</VideoTitle>
               </div>
             </Grid>
           );

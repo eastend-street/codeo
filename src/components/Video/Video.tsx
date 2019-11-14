@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const Content = styled.div`
   /* position: relative; */
-  padding-bottom: 56.25%;
   margin: 0.5rem;
 `;
 
@@ -21,15 +20,16 @@ const Thumbnail = styled.img`
 // `;
 
 type VideoProps = {
-  url: string
+  url: string,
+  title: string
 }
 
-const Video = ({url}:VideoProps) => {
+const Video = ({url, title}:VideoProps) => {
   return (
     <Content>
       <Thumbnail
         src={url}
-        alt="Z1Yd7upQsXY"
+        alt={title}
       />
     </Content>
   );
