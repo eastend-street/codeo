@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const Content = styled.div`
   /* position: relative; */
-  margin: 0.5rem;
 `;
 
 const Thumbnail = styled.img`

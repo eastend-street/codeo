@@ -6,17 +6,29 @@ import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import Video from "../Video/Video";
 
-const Content = styled.div``;
+const Content = styled.div`
+  margin-top: 2rem;
+`;
 
 const VideoTitle = styled.h3`
-  text-align: center;
-`
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  opacity: 0.9;
+`;
+
+const ChannelTitle = styled.p`
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 0.2rem 0.5rem 0 0.5rem;
+`;
 
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   useEffect(() => {
     getVideos(dispatch);
-  });
+  }, [dispatch]);
 
   // const renderVideos = () => {
   //   {
@@ -30,20 +42,18 @@ const VideoList: React.FC = () => {
   //     });
   //   }
   // };
-
   return (
     <Content>
-      <Grid container>
+      <Grid container spacing={4}>
         {state.videos.items.map((video: any, index: number) => {
           return (
             <Grid item xs={12} sm={6} md={3} key={index}>
-              <div className="wrap-video">
-                <Video 
-                url={video.snippet.thumbnails.medium.url} 
+              <Video
+                url={video.snippet.thumbnails.medium.url}
                 title={video.snippet.title}
-                />
-                <VideoTitle>{video.snippet.title}</VideoTitle>
-              </div>
+              />
+              <VideoTitle>{video.snippet.title}</VideoTitle>
+              <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
             </Grid>
           );
         })}

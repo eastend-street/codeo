@@ -7,10 +7,12 @@ export const getVideos = async (dispatch: any) => {
     method: "get",
     url: "https://www.googleapis.com/youtube/v3/search",
     params: {
-      q: "javascript",
+      q: "HTML",
       key: process.env.REACT_APP_YOUTUBE_API_KEY,
-      part: "snippet"
+      part: "snippet",
+      maxResults: 8
     }
   });
+  console.log(response)
   dispatch({ type: GET_VIDEOS, response });
 };
