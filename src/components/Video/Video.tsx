@@ -21,14 +21,14 @@ const Thumbnail = styled.img`
 // `;
 
 type VideoProps = {
-  url: any
+  url: string
 }
 
-const Video: React.FC = () => {
+const Video = ({url}:VideoProps) => {
   return (
     <Content>
       <Thumbnail
-        src="sss"
+        src={url}
         alt="Z1Yd7upQsXY"
       />
     </Content>
