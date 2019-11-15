@@ -3,13 +3,15 @@ import styled from "styled-components";
 
 const Content = styled.div`
   /* position: relative; */
+  transition: 1s;
 `;
 
 const Thumbnail = styled.img`
   width: 100%;
+  height: 100%;
+  max-height: 10rem;
+  object-fit: cover;
   position: relative;
-  /* opacity: 0.9; */
-  transition: 0.7s;
   &:hover {
     cursor: pointer;
   }

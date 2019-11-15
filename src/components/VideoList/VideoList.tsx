@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import AppContext from "../../contexts/AppContext";
-import { getVideos } from "../../actions";
 
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
@@ -54,7 +53,7 @@ const VideoList: React.FC = () => {
       <Grid container spacing={2}>
         {state.videos.items.map((video: any, index: number) => {
           return (
-            <VideoGrid item xs={12} sm={4} md={3} key={index}>
+            <VideoGrid item xs={6} sm={4} md={3} xl={2} key={index}>
               <Video
                 url={video.snippet.thumbnails.medium.url}
                 title={video.snippet.title}

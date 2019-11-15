@@ -10,6 +10,12 @@ const Container = styled.div``;
 
 const NavUl = styled.ul`
   display: flex;
+  white-space: nowrap;
+  overflow-x: scroll;
+  -ms-overflow-style:none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const NavLi = styled.li``;
 
@@ -29,27 +35,29 @@ type NavData = {
 };
 
 const Nav: React.FC = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   useEffect(() => {
     getVideos("react programming", dispatch);
   }, [dispatch]);
 
-  const handleOnClick = (param: string)=>{
-    getVideos(param,dispatch);
-  }
+  const handleOnClick = (param: string) => {
+    getVideos(param, dispatch);
+  };
 
   const renderNav = () => {
     const navData: NavData[] = NavJSON;
     return navData.map((eachData: NavData, index) => (
       <NavLi key={index}>
-        <StyledNavButton onClick={() => handleOnClick(eachData.param)}>{eachData.title}</StyledNavButton>
+        <StyledNavButton onClick={() => handleOnClick(eachData.param)}>
+          {eachData.title}
+        </StyledNavButton>
       </NavLi>
     ));
   };
 
   return (
-    <Container className="scroll-menu">
-      <NavUl className="scroll-menu-inner">{renderNav()}</NavUl>
+    <Container>
+      <NavUl>{renderNav()}</NavUl>
     </Container>
   );
 };
