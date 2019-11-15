@@ -1,7 +1,7 @@
 [
   {
     "title": "React",
-    "param": "react"
+    "param": "react programming"
   },
   {
     "title": "HTML",
@@ -9,7 +9,7 @@
   },
   {
     "title": "CSS",
-    "param": "CSS"
+    "param": "CSS programming"
   },
   {
     "title": "JavaScript",
@@ -21,7 +21,7 @@
   },
   {
     "title": "Ruby",
-    "param": "Ruby"
+    "param": "Ruby programming"
   },
   {
     "title": "How to learn",
@@ -29,10 +29,10 @@
   },
   {
     "title": "Carrer",
-    "param": "Carrer"
+    "param": "Carrer engineer"
   },
   {
     "title": "Most popular",
-    "param": "Most popular"
+    "param": "programming"
   }
 ]

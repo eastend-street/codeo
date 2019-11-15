@@ -4,7 +4,6 @@ import styled from "styled-components";
 import AppContext from "../../contexts/AppContext";
 import { getVideos } from "../../actions";
 
-import NavButton from "../NavButton/NavButton";
 import NavJSON from "../../data/nav.json";
 
 const Container = styled.div``;
@@ -12,8 +11,10 @@ const Container = styled.div``;
 const NavUl = styled.ul`
   display: flex;
 `;
-const NavLi = styled.li`
-  margin: 0 1rem 0.5rem 1rem;
+const NavLi = styled.li``;
+
+const StyledNavButton = styled.div`
+  padding: 0 1rem 0.5rem 1rem;
   opacity: 0.5;
   transition: 0.7s;
   &:hover {
@@ -24,30 +25,31 @@ const NavLi = styled.li`
 
 type NavData = {
   title: string;
-  link: string;
+  param: string;
 };
 
 const Nav: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   useEffect(() => {
-    getVideos(dispatch);
+    getVideos("react programming", dispatch);
   }, [dispatch]);
 
+  const handleOnClick = (param: string)=>{
+    getVideos(param,dispatch);
+  }
 
   const renderNav = () => {
     const navData: NavData[] = NavJSON;
     return navData.map((eachData: NavData, index) => (
       <NavLi key={index}>
-        <NavButton label={eachData.title} />
+        <StyledNavButton onClick={() => handleOnClick(eachData.param)}>{eachData.title}</StyledNavButton>
       </NavLi>
     ));
   };
 
   return (
     <Container className="scroll-menu">
-      <NavUl className="scroll-menu-inner">
-        {renderNav()}
-      </NavUl>
+      <NavUl className="scroll-menu-inner">{renderNav()}</NavUl>
     </Container>
   );
 };
