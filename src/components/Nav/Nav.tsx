@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
+
+import AppContext from "../../contexts/AppContext";
+import { getVideos } from "../../actions";
+
 import NavButton from "../NavButton/NavButton";
 import NavJSON from "../../data/nav.json";
 
@@ -24,6 +28,12 @@ type NavData = {
 };
 
 const Nav: React.FC = () => {
+  const { state, dispatch } = useContext(AppContext);
+  useEffect(() => {
+    getVideos(dispatch);
+  }, [dispatch]);
+
+
   const renderNav = () => {
     const navData: NavData[] = NavJSON;
     return navData.map((eachData: NavData, index) => (

@@ -13,6 +13,7 @@ const StyledContainer = styled.div`
   font-family: sans-serif;
   color: #fff;
   background-color: #232c3b;
+  /* background-color: #000; */
 `;
 
 const App: React.FC = () => {

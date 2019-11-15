@@ -7,6 +7,12 @@ const Content = styled.div`
 
 const Thumbnail = styled.img`
   width: 100%;
+  position: relative;
+  /* opacity: 0.9; */
+  transition: 0.7s;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 // const StyledIframe = styled.iframe`

@@ -1,38 +1,38 @@
 [
   {
     "title": "React",
-    "link": ""
+    "param": "react"
   },
   {
     "title": "HTML",
-    "link": ""
+    "param": "HTML"
   },
   {
     "title": "CSS",
-    "link": ""
+    "param": "CSS"
   },
   {
     "title": "JavaScript",
-    "link": ""
+    "param": "JavaScript"
   },
   {
     "title": "Python",
-    "link": ""
+    "param": "Python"
   },
   {
     "title": "Ruby",
-    "link": ""
+    "param": "Ruby"
   },
   {
     "title": "How to learn",
-    "link": ""
+    "param": "how to learn programming"
   },
   {
     "title": "Carrer",
-    "link": ""
+    "param": "Carrer"
   },
   {
     "title": "Most popular",
-    "link": ""
+    "param": "Most popular"
   }
 ]
