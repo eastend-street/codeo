@@ -4,6 +4,7 @@ import AppContext from "../../contexts/AppContext";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import Video from "../Video/Video";
+import VideoDetail from "../VideoDetail/VideoDetail";
 
 const Content = styled.div`
   margin-top: 1rem;
@@ -48,19 +49,34 @@ const VideoList: React.FC = () => {
   //     });
   //   }
   // };
+
+  const renderVideoDetail = (gridNum: number) => {
+    // TODO: gridNum should be change with media query
+    if (gridNum % 4 === 0) {
+      return (
+        <Grid item xs={12}>
+          <VideoDetail url="aaa" />
+        </Grid>
+      );
+    }
+  };
+
   return (
     <Content>
       <Grid container spacing={2}>
         {state.videos.items.map((video: any, index: number) => {
           return (
-            <VideoGrid item xs={6} sm={4} md={3} xl={2} key={index}>
-              <Video
-                url={video.snippet.thumbnails.medium.url}
-                title={video.snippet.title}
-              />
-              <VideoTitle>{video.snippet.title}</VideoTitle>
-              <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
-            </VideoGrid>
+            <React.Fragment key={index}>
+              <VideoGrid item xs={6} sm={4} md={3} xl={2}>
+                <Video
+                  url={video.snippet.thumbnails.medium.url}
+                  title={video.snippet.title}
+                />
+                <VideoTitle>{video.snippet.title}</VideoTitle>
+                <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+              </VideoGrid>
+              {renderVideoDetail(index + 1)}
+            </React.Fragment>
           );
         })}
       </Grid>
