@@ -12,7 +12,8 @@ export const getVideos = async (param: string, dispatch: any) => {
         q: param,
         key: process.env.REACT_APP_YOUTUBE_API_KEY,
         part: "snippet",
-        maxResults: 16
+        maxResults: 16,
+        type: "video"
       }
     });
     dispatch({ type: GET_VIDEOS, response });

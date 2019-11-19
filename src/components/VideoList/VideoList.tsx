@@ -10,6 +10,10 @@ const Content = styled.div`
   margin-top: 1rem;
 `;
 
+const WrapVideo = styled.div`
+  margin: 0.7rem;
+`;
+
 const VideoTitle = styled.h3`
   font-size: 0.9rem;
   font-weight: bold;
@@ -50,12 +54,12 @@ const VideoList: React.FC = () => {
   //   }
   // };
 
-  const renderVideoDetail = (gridNum: number) => {
+  const renderVideoDetail = (gridNum: number, videoId: string) => {
     // TODO: gridNum should be change with media query
     if (gridNum % 4 === 0) {
       return (
         <Grid item xs={12}>
-          <VideoDetail url="aaa" />
+          <VideoDetail videoId={videoId} />
         </Grid>
       );
     }
@@ -63,19 +67,22 @@ const VideoList: React.FC = () => {
 
   return (
     <Content>
-      <Grid container spacing={2}>
+      <Grid container>
         {state.videos.items.map((video: any, index: number) => {
+          console.log(video.id);
           return (
             <React.Fragment key={index}>
               <VideoGrid item xs={6} sm={4} md={3} xl={2}>
-                <Video
-                  url={video.snippet.thumbnails.medium.url}
-                  title={video.snippet.title}
-                />
-                <VideoTitle>{video.snippet.title}</VideoTitle>
-                <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+                <WrapVideo>
+                  <Video
+                    url={video.snippet.thumbnails.medium.url}
+                    title={video.snippet.title}
+                  />
+                  <VideoTitle>{video.snippet.title}</VideoTitle>
+                  <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+                </WrapVideo>
               </VideoGrid>
-              {renderVideoDetail(index + 1)}
+              {renderVideoDetail(index + 1, video.id.videoId)}
             </React.Fragment>
           );
         })}

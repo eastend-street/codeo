@@ -2,35 +2,49 @@ import React from "react";
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
 
-// const StyledIframe = styled.iframe`
-//   border: none;
-//   width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// `;
+const WrapVideo = styled.div`
+  position: relative;
+  width: 90%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  margin: 2rem;
+`;
+
+const StyledIframe = styled.iframe`
+  border: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 
 const VideoDetailGrid = styled(Grid)`
   && {
-    background-color: #fff;
-    color: #000;
-    /* display: none; */
+    background-color: #39414f;
+    color: #fff;
   }
 `;
 
 type VideoDetailProps = {
-  url: string;
+  videoId: string;
 };
 
-const VideoDetail = ({ url }: VideoDetailProps) => {
+const VideoDetail = ({ videoId }: VideoDetailProps) => {
   return (
     <VideoDetailGrid container>
       <Grid item xs={6}>
         <div>here is video detail</div>
       </Grid>
-      <Grid item xs={6}>
-        <div>here is embed video</div>
+      <Grid item xs={12} sm={6}>
+        <WrapVideo>
+          <StyledIframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            title="Z1Yd7upQsXY"
+          />
+        </WrapVideo>
       </Grid>
     </VideoDetailGrid>
   );

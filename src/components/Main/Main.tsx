@@ -5,7 +5,7 @@ import VideoList from "../VideoList/VideoList";
 
 const Content = styled.div`
   min-height: 85vh;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
 `;
 
 const EachCategory = styled.div`
