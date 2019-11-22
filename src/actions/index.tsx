@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const GET_VIDEOS = "GET_VIDEOS";
-export const GET_VIDEO_DETAIL = "GET_VIDEO_DETAIL";
+export const UPDATE_VIDEO_DETAIL = "UPDATE_VIDEO_DETAIL";
 
 export const getVideos = async (param: string, dispatch: any) => {
   try {
@@ -20,6 +20,10 @@ export const getVideos = async (param: string, dispatch: any) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const updateVideoDetail = (videoDetail: object, dispatch: any) => {
+    dispatch({ type: UPDATE_VIDEO_DETAIL, payload: videoDetail });
 };
 
 // export const getVideoDetail = async (param: string, dispatch: any) => {

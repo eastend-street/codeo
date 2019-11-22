@@ -31,12 +31,15 @@ type VideoProps = {
   title: string
 }
 
-const Video = ({url, title}:VideoProps) => {
+const Video: React.FC<VideoProps> = ({url, title}) => {
+  // const [isOpenDetail, setIsOpenDetail] = useState(false)
+  // console.log("isOpenDetail",isOpenDetail)
   return (
     <Content>
       <Thumbnail
         src={url}
         alt={title}
+        // onClick={() => setIsOpenDetail(!isOpenDetail)}
       />
     </Content>
   );

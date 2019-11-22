@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
 
@@ -32,21 +33,22 @@ type VideoDetailProps = {
 };
 
 const VideoDetail = ({ videoId }: VideoDetailProps) => {
+  // const { state } = useContext(AppContext);
   return (
-    <VideoDetailGrid container>
-      <Grid item xs={6}>
-        <div>here is video detail</div>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <WrapVideo>
-          <StyledIframe
-            src={`https://www.youtube.com/embed/${videoId}`}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            title="Z1Yd7upQsXY"
-          />
-        </WrapVideo>
-      </Grid>
-    </VideoDetailGrid>
+        <VideoDetailGrid container>
+          <Grid item xs={6}>
+            <div>here is video detail</div>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <WrapVideo>
+              <StyledIframe
+                src={`https://www.youtube.com/embed/${videoId}`}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                title={`${videoId}`}
+              />
+            </WrapVideo>
+          </Grid>
+        </VideoDetailGrid>
   );
 };
 

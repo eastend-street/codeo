@@ -6,12 +6,15 @@ import Grid from "@material-ui/core/Grid";
 import Video from "../Video/Video";
 import VideoDetail from "../VideoDetail/VideoDetail";
 
+import { updateVideoDetail } from "../../actions";
+
 const Content = styled.div`
   margin-top: 1rem;
 `;
 
 const WrapVideo = styled.div`
   margin: 0.7rem;
+  cursor: pointer;
 `;
 
 const VideoTitle = styled.h3`
@@ -30,50 +33,57 @@ const ChannelTitle = styled.p`
 
 const VideoGrid = styled(Grid)`
   && {
-    margin-bottom: 2rem;
+    margin: 1rem 0;
   }
 `;
 
-const VideoList: React.FC = () => {
-  const { state } = useContext(AppContext);
-  // const { state, dispatch } = useContext(AppContext);
-  // useEffect(() => {
-  //   getVideos(dispatch);
-  // }, [dispatch]);
+type renderVideoDetailProps = {};
 
-  // const renderVideos = () => {
-  //   {
-  //     state.videos.items.map((video: any, index: number) => {
-  //       return (
-  //         <Grid item xs={12} sm={6} md={3} key={index}>
-  //           <Video url={video.snippet.thumbnails.high.url} />
-  //           {/* <div>{video.snippet.title}</div> */}
-  //         </Grid>
-  //       );
-  //     });
-  //   }
+const VideoList: React.FC = () => {
+  const { state, dispatch } = useContext(AppContext);
+  // const columnNum = {
+  //   xs: 6,
+  //   sm: 4,
+  //   md: 3,
+  //   xl: 2
   // };
 
-  const renderVideoDetail = (gridNum: number, videoId: string) => {
+  const renderVideoDetail = (index: number, video: any) => {
+    const gridNum = index + 1;
+    const rowNum = Math.floor(index / 4) + 1;
     // TODO: gridNum should be change with media query
     if (gridNum % 4 === 0) {
       return (
-        <Grid item xs={12}>
-          <VideoDetail videoId={videoId} />
-        </Grid>
+        <>
+          {rowNum === state.videoDetail.rowNum && state.videoDetail.isOpen && (
+            <Grid item xs={12}>
+              <VideoDetail videoId={state.videoDetail.videoId} />
+            </Grid>
+          )}
+        </>
       );
     }
+  };
+
+  const toggleVideoDetail = (videoId: string, index: number) => {
+    const videoDetail = {
+      videoId: videoId,
+      isOpen: !state.videoDetail.isOpen,
+      rowNum: Math.floor(index / 4) + 1
+    };
+    updateVideoDetail(videoDetail, dispatch);
   };
 
   return (
     <Content>
       <Grid container>
         {state.videos.items.map((video: any, index: number) => {
-          console.log(video.id);
           return (
             <React.Fragment key={index}>
               <VideoGrid item xs={6} sm={4} md={3} xl={2}>
-                <WrapVideo>
+                <WrapVideo
+                  onClick={() => toggleVideoDetail(video.id.videoId, index)}
+                >
                   <Video
                     url={video.snippet.thumbnails.medium.url}
                     title={video.snippet.title}
@@ -82,7 +92,7 @@ const VideoList: React.FC = () => {
                   <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
                 </WrapVideo>
               </VideoGrid>
-              {renderVideoDetail(index + 1, video.id.videoId)}
+              {renderVideoDetail(index, video)}
             </React.Fragment>
           );
         })}

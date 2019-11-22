@@ -20,6 +20,11 @@ const App: React.FC = () => {
   const initialState = {
     videos: {
       items: []
+    },
+    videoDetail: {
+      isOpen: false,
+      videoId: "",
+      rowNum: 0
     }
   };
   const [state, dispatch] = useReducer(reducer, initialState);
