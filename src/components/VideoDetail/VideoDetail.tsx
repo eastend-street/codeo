@@ -33,7 +33,6 @@ type VideoDetailProps = {
 };
 
 const VideoDetail = ({ videoId }: VideoDetailProps) => {
-  // const { state } = useContext(AppContext);
   return (
         <VideoDetailGrid container>
           <Grid item xs={6}>
