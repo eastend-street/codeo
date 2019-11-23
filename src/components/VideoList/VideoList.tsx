@@ -37,8 +37,6 @@ const VideoGrid = styled(Grid)`
   }
 `;
 
-type renderVideoDetailProps = {};
-
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   // const columnNum = {
@@ -66,11 +64,17 @@ const VideoList: React.FC = () => {
   };
 
   const toggleVideoDetail = (videoId: string, index: number) => {
+    const isOpen =
+      state.videoDetail.videoId !== videoId || state.videoDetail.videoId === ""
+        ? true
+        : false;
+
     const videoDetail = {
       videoId: videoId,
-      isOpen: !state.videoDetail.isOpen,
+      isOpen: isOpen,
       rowNum: Math.floor(index / 4) + 1
     };
+
     updateVideoDetail(videoDetail, dispatch);
   };
 
