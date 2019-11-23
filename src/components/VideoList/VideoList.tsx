@@ -69,7 +69,7 @@ const VideoList: React.FC = () => {
   };
 
   const toggleVideoDetail = (video: any, index: number) => {
-    const videoId = video.id.videoId; 
+    const videoId = video.id.videoId;
     const isOpen =
       state.videoDetail.videoId !== videoId || state.videoDetail.videoId === ""
         ? true
@@ -91,9 +91,7 @@ const VideoList: React.FC = () => {
           return (
             <React.Fragment key={index}>
               <VideoGrid item xs={6} sm={4} md={3}>
-                <WrapVideo
-                  onClick={() => toggleVideoDetail(video, index)}
-                >
+                <WrapVideo onClick={() => toggleVideoDetail(video, index)}>
                   <Video
                     url={video.snippet.thumbnails.medium.url}
                     title={video.snippet.title}
