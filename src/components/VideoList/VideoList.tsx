@@ -39,12 +39,6 @@ const VideoGrid = styled(Grid)`
 
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
-  // const columnNum = {
-  //   xs: 6,
-  //   sm: 4,
-  //   md: 3,
-  //   xl: 2
-  // };
 
   const renderVideoDetail = (index: number, video: any) => {
     const gridNum = index + 1;
@@ -55,7 +49,7 @@ const VideoList: React.FC = () => {
         <>
           {rowNum === state.videoDetail.rowNum && state.videoDetail.isOpen && (
             <Grid item xs={12}>
-              <VideoDetail videoId={state.videoDetail.videoId} />
+              <VideoDetail video={state.videoDetail.video} />
             </Grid>
           )}
         </>
@@ -63,13 +57,15 @@ const VideoList: React.FC = () => {
     }
   };
 
-  const toggleVideoDetail = (videoId: string, index: number) => {
+  const toggleVideoDetail = (video: any, index: number) => {
+    const videoId = video.id.videoId; 
     const isOpen =
       state.videoDetail.videoId !== videoId || state.videoDetail.videoId === ""
         ? true
         : false;
 
     const videoDetail = {
+      video: video,
       videoId: videoId,
       isOpen: isOpen,
       rowNum: Math.floor(index / 4) + 1
@@ -86,7 +82,7 @@ const VideoList: React.FC = () => {
             <React.Fragment key={index}>
               <VideoGrid item xs={6} sm={4} md={3} xl={2}>
                 <WrapVideo
-                  onClick={() => toggleVideoDetail(video.id.videoId, index)}
+                  onClick={() => toggleVideoDetail(video, index)}
                 >
                   <Video
                     url={video.snippet.thumbnails.medium.url}

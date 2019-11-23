@@ -29,10 +29,11 @@ const VideoDetailGrid = styled(Grid)`
 `;
 
 type VideoDetailProps = {
-  videoId: string;
+  video: any;
 };
 
-const VideoDetail = ({ videoId }: VideoDetailProps) => {
+const VideoDetail = ({ video }: VideoDetailProps) => {
+  console.log(video);
   return (
         <VideoDetailGrid container>
           <Grid item xs={6}>
@@ -41,9 +42,9 @@ const VideoDetail = ({ videoId }: VideoDetailProps) => {
           <Grid item xs={12} sm={6}>
             <WrapVideo>
               <StyledIframe
-                src={`https://www.youtube.com/embed/${videoId}`}
+                src={`https://www.youtube.com/embed/${video.id.videoId}`}
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                title={`${videoId}`}
+                title={`${video.id.videoId}`}
               />
             </WrapVideo>
           </Grid>
