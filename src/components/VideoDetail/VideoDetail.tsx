@@ -1,7 +1,34 @@
 import React from "react";
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Grid } from "@material-ui/core";
+
+const fadeInVideoDetail = keyframes`
+  from {
+      height: 0;
+  }
+  to {
+      height: auto;
+  }
+`;
+
+const fadeOutVideoDetail = keyframes`
+  from {
+    height: auto;
+  }
+  to {
+      height: 0;
+  }
+`;
+
+const VideoDetailGrid = styled(Grid)`
+  && {
+    background-color: #39414f;
+    color: #fff;
+    padding: 0.5rem;
+    animation: ${fadeInVideoDetail} 0.7s ease-out 0s 1 forwards;
+  }
+`;
 
 const WrapVideo = styled.div`
   position: relative;
@@ -19,14 +46,6 @@ const StyledIframe = styled.iframe`
   position: absolute;
   top: 0;
   left: 0;
-`;
-
-const VideoDetailGrid = styled(Grid)`
-  && {
-    background-color: #39414f;
-    color: #fff;
-    padding: 0.5rem;
-  }
 `;
 
 const VideoDescGrid = styled(Grid)`
@@ -61,7 +80,6 @@ type VideoDetailProps = {
 };
 
 const VideoDetail = ({ video }: VideoDetailProps) => {
-  console.log(video);
   return (
     <VideoDetailGrid container>
       <VideoDescGrid item xs={6}>

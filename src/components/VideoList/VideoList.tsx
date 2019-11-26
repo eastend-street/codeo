@@ -37,6 +37,13 @@ const VideoGrid = styled(Grid)`
   }
 `;
 
+const WrapVideoDetailGrid = styled(Grid)`
+  && {
+    /* transition: 0.5s; */
+  }
+`
+
+
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
 
@@ -59,9 +66,9 @@ const VideoList: React.FC = () => {
       return (
         <>
           {rowNum === state.videoDetail.rowNum && state.videoDetail.isOpen && (
-            <Grid item xs={12}>
+            <WrapVideoDetailGrid item xs={12}>
               <VideoDetail video={state.videoDetail.video} />
-            </Grid>
+            </WrapVideoDetailGrid>
           )}
         </>
       );
