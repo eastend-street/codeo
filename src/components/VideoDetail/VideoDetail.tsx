@@ -3,30 +3,34 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Grid } from "@material-ui/core";
 
-const fadeInVideoDetail = keyframes`
-  from {
-      height: 0;
-  }
-  to {
-      height: auto;
-  }
-`;
+// const fadeInVideoDetail = keyframes`
+//   0% {
+//     height: 0
+//   }
+//   50% {
+//     height: 50%;
+//   }
+//   100% {
+//     height: 100%;
+//   }
+// `;
 
-const fadeOutVideoDetail = keyframes`
-  from {
-    height: auto;
-  }
-  to {
-      height: 0;
-  }
-`;
+// const fadeOutVideoDetail = keyframes`
+//   from {
+//     height: auto;
+//   }
+//   to {
+//       height: 0;
+//   }
+// `;
+// animation: ${fadeInVideoDetail} .5s linear 0s 1 forwards; */
+
 
 const VideoDetailGrid = styled(Grid)`
   && {
     background-color: #39414f;
     color: #fff;
     padding: 0.5rem;
-    animation: ${fadeInVideoDetail} 0.7s ease-out 0s 1 forwards;
   }
 `;
 
