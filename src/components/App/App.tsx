@@ -22,6 +22,7 @@ const App: React.FC = () => {
       items: []
     },
     videoDetail: {
+      video: {},
       isOpen: false,
       videoId: "",
       rowNum: 0

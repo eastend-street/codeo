@@ -26,20 +26,3 @@ export const updateVideoDetail = (videoDetail: object, dispatch: any) => {
     dispatch({ type: UPDATE_VIDEO_DETAIL, payload: videoDetail });
 };
 
-// export const getVideoDetail = async (param: string, dispatch: any) => {
-//   try {
-//     const response = await axios({
-//       method: "get",
-//       url: "https://www.googleapis.com/youtube/v3/search",
-//       params: {
-//         q: param,
-//         key: process.env.REACT_APP_YOUTUBE_API_KEY,
-//         part: "snippet",
-//       }
-//     });
-//     dispatch({ type: GET_VIDEO_DETAIL, response });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
