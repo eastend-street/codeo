@@ -65,9 +65,10 @@ const VideoList: React.FC = () => {
     if (gridNum % calcVideoColumnNum() === 0) {
       return (
         <>
-          {rowNum === state.videoDetail.rowNum && state.videoDetail.isOpen && (
+          {/* {rowNum === state.videoDetail.rowNum && state.videoDetail.isOpen && ( */}
+          {rowNum === state.videoDetail.rowNum && (
             <WrapVideoDetailGrid item xs={12}>
-              <VideoDetail video={state.videoDetail.video} />
+              <VideoDetail video={state.videoDetail.video} isOpen={state.videoDetail.isOpen}/>
             </WrapVideoDetailGrid>
           )}
         </>
