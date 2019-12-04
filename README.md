@@ -8,3 +8,6 @@ Codeo is a website to search programming video from YouTube.
 - TypeScript
 - JavaScript
 - YouTube Data API
+
+# Mockup
+

@@ -4,29 +4,39 @@ import styled, { keyframes } from "styled-components";
 import { Grid } from "@material-ui/core";
 
 const fadeInVideoDetail = keyframes`
-  from {
-      height: 0;
+  0% {
+    height: 0
   }
-  to {
-      height: auto;
+  50% {
+    height: 50%;
+  }
+  100% {
+    height: 100%;
   }
 `;
 
 const fadeOutVideoDetail = keyframes`
-  from {
-    height: auto;
+  0% {
+    height: 100%
   }
-  to {
-      height: 0;
+  50% {
+    height: 50%;
+  }
+  100% {
+    height: 0;
   }
 `;
 
-const VideoDetailGrid = styled(Grid)`
+const VideoDetailGrid = styled(Grid)<{ isOpen: boolean }>`
   && {
     background-color: #39414f;
     color: #fff;
     padding: 0.5rem;
-    animation: ${fadeInVideoDetail} 0.7s ease-out 0s 1 forwards;
+    overflow: hidden;
+    transition: all 1s;
+    visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+    animation: ${props => (props.isOpen ? fadeInVideoDetail : fadeOutVideoDetail)}
+      0.3s linear 0s 1 forwards;
   }
 `;
 
@@ -77,11 +87,12 @@ const Description = styled.p`
 
 type VideoDetailProps = {
   video: any;
+  isOpen: boolean;
 };
 
-const VideoDetail = ({ video }: VideoDetailProps) => {
+const VideoDetail = ({ video, isOpen }: VideoDetailProps) => {
   return (
-    <VideoDetailGrid container>
+    <VideoDetailGrid container isOpen={isOpen}>
       <VideoDescGrid item xs={6}>
         <WrapVideoDesc>
           <VideoTitle>{video.snippet.title}</VideoTitle>
