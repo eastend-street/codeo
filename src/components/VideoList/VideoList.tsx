@@ -7,6 +7,7 @@ import Video from "../Video/Video";
 import VideoDetail from "../VideoDetail/VideoDetail";
 
 import { updateVideoDetail } from "../../actions";
+import Fade from "./Fade";
 
 const Content = styled.div`
   margin-top: 1rem;
@@ -37,12 +38,6 @@ const VideoGrid = styled(Grid)`
   }
 `;
 
-const WrapVideoDetailGrid = styled(Grid)`
-  && {
-    /* transition: 0.5s; */
-  }
-`;
-
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
 
@@ -64,14 +59,13 @@ const VideoList: React.FC = () => {
     if (gridNum % calcVideoColumnNum() === 0) {
       return (
         <>
-          {/* {rowNum === state.videoDetail.rowNum && state.videoDetail.isOpen && ( */}
+          {/* {rowNum === state.videoDetail.rowNum && state.videoDetail.isVisible && ( */}
           {rowNum === state.videoDetail.rowNum && (
-            <WrapVideoDetailGrid item xs={12}>
-              <VideoDetail
-                video={state.videoDetail.video}
-                isOpen={state.videoDetail.isOpen}
-              />
-            </WrapVideoDetailGrid>
+            <Grid item xs={12}>
+              <Fade show={state.videoDetail.isVisible}>
+                <VideoDetail video={state.videoDetail.video} />
+              </Fade>
+            </Grid>
           )}
         </>
       );
@@ -80,7 +74,7 @@ const VideoList: React.FC = () => {
 
   const toggleVideoDetail = (video: any, index: number) => {
     const videoId = video.id.videoId;
-    const isOpen =
+    const isVisible =
       state.videoDetail.videoId !== videoId || state.videoDetail.videoId === ""
         ? true
         : false;
@@ -88,7 +82,7 @@ const VideoList: React.FC = () => {
     const videoDetail = {
       video: video,
       videoId: videoId,
-      isOpen: isOpen,
+      isVisible: isVisible,
       rowNum: Math.floor(index / calcVideoColumnNum()) + 1
     };
     updateVideoDetail(videoDetail, dispatch);

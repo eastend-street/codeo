@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
-const fadeInVideoDetail = keyframes`
+const fadeIn = keyframes`
   0% {
-    height: 0%;
+    height: 0;
   }
   50% {
     height: 50%;
@@ -13,7 +13,7 @@ const fadeInVideoDetail = keyframes`
   }
 `;
 
-const fadeOutVideoDetail = keyframes`
+const fadeOut = keyframes`
   0% {
     height: 100%
   }
@@ -29,7 +29,7 @@ const StyledFade = styled.div`
   background-color: grey;
   color: #fff;
   overflow: hidden;
-  animation: ${props => (props.show ? "fadeIn" : "fadeOut")} 1s forwards;
+  animation: ${props => (props.show ? fadeIn : fadeOut)} 0.3s linear forwards;
 `;
 
 const Fade = ({ show, children }) => {

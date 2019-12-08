@@ -112,10 +112,10 @@ const Description = styled.p`
 
 type VideoDetailProps = {
   video: any;
-  isOpen: boolean;
+  isVisible: boolean;
 };
 
-const VideoDetail = ({ video, isOpen }: VideoDetailProps) => {
+const VideoDetail = ({ video, isVisible }: VideoDetailProps) => {
   const [inProp, setInProp] = useState(false);
 
   useEffect(() => {
@@ -130,7 +130,7 @@ const VideoDetail = ({ video, isOpen }: VideoDetailProps) => {
       {state => (
         <VideoDetailGrid
           container
-          // active={isOpen}
+          // active={isVisible}
           style={{
             ...defaultStyle,
             ...transitionStyles[state]
@@ -159,7 +159,7 @@ const VideoDetail = ({ video, isOpen }: VideoDetailProps) => {
   );
 };
 
-// const VideoDetail = ({ video, isOpen }: VideoDetailProps) => {
+// const VideoDetail = ({ video, isVisible }: VideoDetailProps) => {
 //   const [inProp, setInProp] = useState(false);
 //   useEffect(()=>{
 //     setInProp(true);
