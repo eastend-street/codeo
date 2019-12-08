@@ -1,15 +1,15 @@
 [
   {
     "title": "React",
-    "param": "react programming"
+    "param": "react tutorial"
   },
   {
     "title": "HTML",
-    "param": "HTML"
+    "param": "HTML tutorial"
   },
   {
     "title": "CSS",
-    "param": "CSS programming"
+    "param": "CSS tutorial"
   },
   {
     "title": "JavaScript",
@@ -17,11 +17,11 @@
   },
   {
     "title": "Python",
-    "param": "Python"
+    "param": "Python tutorial"
   },
   {
     "title": "Ruby",
-    "param": "Ruby programming"
+    "param": "Ruby tutorial"
   },
   {
     "title": "How to learn",
