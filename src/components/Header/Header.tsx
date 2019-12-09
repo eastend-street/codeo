@@ -14,9 +14,8 @@ const StyledAppBar = styled(AppBar)`
 
 const Logo = styled(Typography)`
   && {
-    padding-left: 1rem;
     font-size: 1.5rem;
-    color: #ffcb00;
+    /* color: #ffcb00; */
     font-weight:bold;
   }
 `;
