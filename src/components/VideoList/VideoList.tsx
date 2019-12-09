@@ -10,11 +10,11 @@ import { updateVideoDetail } from "../../actions";
 import Fade from "./Fade";
 
 const Content = styled.div`
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 `;
 
 const WrapVideo = styled.div`
-  margin: 0.7rem;
+  margin: 0 0.7rem;
   cursor: pointer;
 `;
 
