@@ -36,14 +36,15 @@ const StyledNavButton = styled.div<{ selected: boolean }>`
   }
 `;
 
-const Underline = styled.span`
+const Underline = styled.span<{ underlineLeft: number }>`
   background: #fff;
   height: 0.1rem;
   display: block;
   position: absolute;
-  left:87px;
+  left: ${props => props.underlineLeft}px;
   bottom: 0;
-  width: 3rem;
+  width: 2rem;
+  transition: 0.5s;
 `;
 
 type NavData = {
@@ -51,22 +52,20 @@ type NavData = {
   param: string;
 };
 
-// const moveUnderline = () => {
-//   return(
-
-//   )
-// }
-
 const Nav: React.FC = () => {
   const [selectedNav, setSelectedNav] = useState(0);
+  const [underlineLeft, setUnderlineLeft] = useState(20.89);
   const { dispatch } = useContext(AppContext);
+
   useEffect(() => {
     getVideos("react programming", dispatch);
   }, [dispatch]);
 
-  const handleOnClick = (param: string, index: number, value: any) => {
-    console.log(value.offsetY)
+  const handleOnClick = (param: string, index: number, element: any) => {
     setSelectedNav(index);
+    const left = element.getBoundingClientRect().left;
+    const width = element.getBoundingClientRect().width;
+    setUnderlineLeft(left + (width / 2) - 16);
     getVideos(param, dispatch);
   };
 
@@ -78,7 +77,7 @@ const Nav: React.FC = () => {
         <NavLi key={index}>
           <StyledNavButton
             selected={selected}
-            onClick={(e) => handleOnClick(eachData.param, index, e)}
+            onClick={e => handleOnClick(eachData.param, index, e.target)}
           >
             {eachData.title}
           </StyledNavButton>
@@ -90,7 +89,7 @@ const Nav: React.FC = () => {
   return (
     <Container>
       <NavUl>{renderNav()}</NavUl>
-      <Underline />
+      <Underline underlineLeft={underlineLeft} />
     </Container>
   );
 };
