@@ -7,6 +7,7 @@ import { getVideos } from "../../actions";
 import NavJSON from "../../data/nav.json";
 
 const Container = styled.div`
+  position: relative;
 `;
 
 const NavUl = styled.ul`
@@ -20,10 +21,22 @@ const NavUl = styled.ul`
 `;
 const NavLi = styled.li``;
 
+const Underline = styled.span<{ underlineLeft: number }>`
+  background: #fff;
+  height: 0.1rem;
+  display: block;
+  position: absolute;
+  left: ${props => props.underlineLeft}px;
+  bottom: 0;
+  width: 2rem;
+  transition: 0.4s;
+`;
+
 const StyledNavButton = styled.div<{ selected: boolean }>`
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
-  /* border: ${props => (props.selected ? "0.0625rem solid #fff" : "0.0625rem solid #fff")}; */
+  /* border: ${props =>
+    props.selected ? "0.0625rem solid #fff" : "0.0625rem solid #fff"}; */
   border-radius: 1rem;
   opacity: ${props => (props.selected ? "1" : "0.5")};
   transition: 0.7s;
@@ -41,7 +54,7 @@ type NavData = {
 
 const Nav: React.FC = () => {
   const [selectedNav, setSelectedNav] = useState(0);
-  const [underlineLeft, setUnderlineLeft] = useState(20.89);
+  const [underlineLeft, setUnderlineLeft] = useState(28.89);
   const { dispatch } = useContext(AppContext);
 
   useEffect(() => {
@@ -52,7 +65,8 @@ const Nav: React.FC = () => {
     setSelectedNav(index);
     const left = element.getBoundingClientRect().left;
     const width = element.getBoundingClientRect().width;
-    setUnderlineLeft(left + (width / 2) - 16);
+    console.log(left + width / 2 - 16);
+    setUnderlineLeft(left + width / 2 - 16);
     getVideos(param, dispatch);
   };
 
@@ -76,6 +90,7 @@ const Nav: React.FC = () => {
   return (
     <Container>
       <NavUl>{renderNav()}</NavUl>
+      <Underline underlineLeft={underlineLeft} />
     </Container>
   );
 };
