@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 import AppContext from "../../contexts/AppContext";
 import { getVideos } from "../../actions";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 
 import NavJSON from "../../data/nav.json";
 
@@ -58,7 +56,7 @@ const Nav: React.FC = () => {
   const { dispatch } = useContext(AppContext);
 
   useEffect(() => {
-    getVideos("react programming", dispatch);
+    getVideos("react tutorial", dispatch);
   }, [dispatch]);
 
   const handleOnClick = (param: string, index: number, element: any) => {
