@@ -16,7 +16,7 @@ const Copyright = styled.p`
 const Footer: React.FC = () => {
   return (
     <StyledFooter>
-      <Copyright>&copy; Codeo 2019 All rights reserved.</Copyright>
+      <Copyright>&copy; Codeo All rights reserved.</Copyright>
     </StyledFooter>
   );
 };

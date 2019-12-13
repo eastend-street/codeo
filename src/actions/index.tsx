@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// import getVideosFromJSON from "../utils/getVideosFromJSON";
 export const GET_VIDEOS = "GET_VIDEOS";
 export const UPDATE_VIDEO_DETAIL = "UPDATE_VIDEO_DETAIL";
 
@@ -16,13 +16,14 @@ export const getVideos = async (param: string, dispatch: any) => {
         type: "video"
       }
     });
+    // const response = getVideosFromJSON(param);
     dispatch({ type: GET_VIDEOS, response });
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 
 export const updateVideoDetail = (videoDetail: object, dispatch: any) => {
-    dispatch({ type: UPDATE_VIDEO_DETAIL, payload: videoDetail });
+  dispatch({ type: UPDATE_VIDEO_DETAIL, payload: videoDetail });
 };
 
