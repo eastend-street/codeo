@@ -9,6 +9,7 @@ const StyledAppBar = styled(AppBar)`
     color: #fff;
     background-color: #232c3b;
     box-shadow: none;
+    height: 3rem;
   }
 `;
 
