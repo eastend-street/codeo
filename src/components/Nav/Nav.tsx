@@ -41,7 +41,7 @@ const StyledNavButton = styled.div<{ selected: boolean }>`
   opacity: ${props => (props.selected ? "1" : "0.5")};
   transition: 0.7s;
   &:hover {
-    opacity: 1;
+    opacity: 0.7;
     cursor: pointer;
 
   }
