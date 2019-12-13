@@ -74,11 +74,13 @@ const VideoList: React.FC = () => {
 
   const toggleVideoDetail = (video: any, index: number) => {
     const videoId = video.id.videoId;
-    const isVisible =
-      state.videoDetail.videoId !== videoId || state.videoDetail.videoId === ""
-        ? true
-        : false;
-
+    let isVisible = !state.videoDetail.isVisible;
+    if (state.videoDetail.videoId !== videoId) {
+      isVisible = true;
+    }
+    // state.videoDetail.videoId !== videoId || state.videoDetail.videoId === ""
+    //   ? true
+    //   : false;
     const videoDetail = {
       video: video,
       videoId: videoId,
