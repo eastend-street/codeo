@@ -9,7 +9,7 @@ const Content = styled.div`
 `;
 
 const EachCategory = styled.div`
-  padding: 1rem 0;
+  padding: 0 0 1rem 0;
 `;
 
 const Main: React.FC = () => {
