@@ -1,6 +1,5 @@
 import React, { useReducer } from "react";
 import styled from "styled-components";
-
 import AppContext from "../../contexts/AppContext";
 import reducer from "../../reducers";
 

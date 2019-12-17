@@ -18,6 +18,9 @@ const WrapVideo = styled.div`
   padding-bottom: 56.25%;
   overflow: hidden;
   margin: 0 0.5rem;
+  @media (max-width: 600px) {
+    margin: 0 auto;
+  }
 `;
 
 const StyledIframe = styled.iframe`
@@ -33,16 +36,25 @@ const VideoDescGrid = styled(Grid)`
   && {
     display: flex;
     align-items: center;
+    @media (max-width: 600px) {
+      order: 2;
+    }
   }
 `;
 
 const WrapVideoDesc = styled.div`
   padding: 0 3rem;
+  @media (max-width: 600px) {
+    padding: 1rem 3rem;
+  }
 `;
 
 const VideoTitle = styled.h3`
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ChannelTitle = styled.div`
@@ -63,7 +75,7 @@ type VideoDetailProps = {
 const VideoDetail = ({ video }: VideoDetailProps) => {
   return (
     <VideoDetailGrid container>
-      <VideoDescGrid item xs={6}>
+      <VideoDescGrid item xs={12} sm={6}>
         <WrapVideoDesc>
           <VideoTitle>{video.snippet.title}</VideoTitle>
           <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>

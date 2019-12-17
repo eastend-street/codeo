@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.4.3",
     "@material-ui/icons": "^4.4.3",
+    "@material-ui/styles": "^4.7.1",
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.18",
     "@types/material-ui": "^0.21.7",
