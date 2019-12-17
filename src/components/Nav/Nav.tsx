@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 
 import AppContext from "../../contexts/AppContext";
-import { getVideos } from "../../actions";
+import { getVideos, updateVideoDetail } from "../../actions";
 
 import NavJSON from "../../data/nav.json";
 
@@ -65,9 +65,17 @@ const Nav: React.FC = () => {
     setSelectedNav(index);
     const left = element.getBoundingClientRect().left;
     const width = element.getBoundingClientRect().width;
-    console.log(left + width / 2 - 16);
     setUnderlineLeft(left + width / 2 - 16);
     getVideos(param, dispatch);
+
+    // close videoDetail
+    const videoDetail = {
+      video: {},
+      isVisible: false,
+      videoId: "",
+      rowNum: 0
+    };
+    updateVideoDetail(videoDetail, dispatch);
   };
 
   const renderNav = () => {
