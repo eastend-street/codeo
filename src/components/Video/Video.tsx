@@ -8,7 +8,7 @@ const Content = styled.div`
 const Thumbnail = styled.img`
   width: 100%;
   height: 100%;
-  max-height: 10rem;
+  /* max-height: 10rem; */
   object-fit: cover;
   position: relative;
   &:hover {
