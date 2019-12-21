@@ -11,6 +11,14 @@ const VideoDetailGrid = styled(Grid)`
   }
 `;
 
+const VideoGrid = styled(Grid)`
+  && {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
 const WrapVideo = styled.div`
   position: relative;
   width: 90%;
@@ -44,16 +52,20 @@ const VideoDescGrid = styled(Grid)`
 
 const WrapVideoDesc = styled.div`
   padding: 0 3rem;
+  @media (max-width: 960px) {
+    padding: 1rem;
+  }
   @media (max-width: 600px) {
-    padding: 1rem 3rem;
+    padding: 1rem 1.5rem;
   }
 `;
 
 const VideoTitle = styled.h3`
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  @media (max-width: 600px) {
-    font-size: 1.5rem;
+  @media (max-width: 960px) {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -61,11 +73,18 @@ const ChannelTitle = styled.div`
   font-size: 1rem;
   margin-bottom: 1rem;
   opacity: 0.7;
+  @media (max-width: 960px) {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 const Description = styled.p`
   font-size: 1rem;
   margin-bottom: 1rem;
   opacity: 0.9;
+  @media (max-width: 960px) {
+    font-size: 0.9rem;
+  }
 `;
 
 type VideoDetailProps = {
@@ -82,7 +101,7 @@ const VideoDetail = ({ video }: VideoDetailProps) => {
           <Description>{video.snippet.description}</Description>
         </WrapVideoDesc>
       </VideoDescGrid>
-      <Grid item xs={12} sm={6}>
+      <VideoGrid item xs={12} sm={6}>
         <WrapVideo>
           <StyledIframe
             src={`https://www.youtube.com/embed/${video.id.videoId}`}
@@ -90,7 +109,7 @@ const VideoDetail = ({ video }: VideoDetailProps) => {
             title={`${video.id.videoId}`}
           />
         </WrapVideo>
-      </Grid>
+      </VideoGrid>
     </VideoDetailGrid>
   );
 };

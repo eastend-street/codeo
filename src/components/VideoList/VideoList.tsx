@@ -24,12 +24,18 @@ const VideoTitle = styled.h3`
   line-height: 1.2rem;
   margin: 0.5rem 0.5rem 0 0.5rem;
   opacity: 0.9;
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const ChannelTitle = styled.p`
   font-size: 0.8rem;
   opacity: 0.7;
   margin: 0.2rem 0.5rem 0 0.5rem;
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const VideoGrid = styled(Grid)`

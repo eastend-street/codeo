@@ -19,7 +19,9 @@ const NavUl = styled.ul`
     display: none;
   }
 `;
-const NavLi = styled.li``;
+const NavLi = styled.li`
+  padding: 0.5rem 1rem;
+`;
 
 const Underline = styled.span<{ underlineLeft: number }>`
   background: #fff;
@@ -37,7 +39,6 @@ const Underline = styled.span<{ underlineLeft: number }>`
 
 const StyledNavButton = styled.div<{ selected: boolean }>`
   margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
   /* border: ${props =>
     props.selected ? "0.0625rem solid #fff" : "0.0625rem solid #fff"}; */
   border-radius: 1rem;
@@ -46,7 +47,6 @@ const StyledNavButton = styled.div<{ selected: boolean }>`
   &:hover {
     opacity: 1;
     cursor: pointer;
-
   }
 `;
 
