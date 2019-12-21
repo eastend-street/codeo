@@ -19,7 +19,9 @@ const NavUl = styled.ul`
     display: none;
   }
 `;
-const NavLi = styled.li``;
+const NavLi = styled.li`
+  padding: 0.5rem 1rem;
+`;
 
 const Underline = styled.span<{ underlineLeft: number }>`
   background: #fff;
@@ -30,20 +32,21 @@ const Underline = styled.span<{ underlineLeft: number }>`
   bottom: 0;
   width: 2rem;
   transition: 0.4s;
+  @media (max-width: 920px) {
+    display: none;
+  }
 `;
 
 const StyledNavButton = styled.div<{ selected: boolean }>`
   margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
   /* border: ${props =>
     props.selected ? "0.0625rem solid #fff" : "0.0625rem solid #fff"}; */
   border-radius: 1rem;
   opacity: ${props => (props.selected ? "1" : "0.5")};
   transition: 0.7s;
   &:hover {
-    opacity: 0.7;
+    opacity: 1;
     cursor: pointer;
-
   }
 `;
 
