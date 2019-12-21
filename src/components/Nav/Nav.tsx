@@ -30,6 +30,9 @@ const Underline = styled.span<{ underlineLeft: number }>`
   bottom: 0;
   width: 2rem;
   transition: 0.4s;
+  @media (max-width: 920px) {
+    display: none;
+  }
 `;
 
 const StyledNavButton = styled.div<{ selected: boolean }>`
@@ -41,7 +44,7 @@ const StyledNavButton = styled.div<{ selected: boolean }>`
   opacity: ${props => (props.selected ? "1" : "0.5")};
   transition: 0.7s;
   &:hover {
-    opacity: 0.7;
+    opacity: 1;
     cursor: pointer;
 
   }
