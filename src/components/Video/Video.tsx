@@ -17,17 +17,14 @@ const Thumbnail = styled.img`
 `;
 
 type VideoProps = {
-  url: string,
-  title: string
-}
+  url: string;
+  title: string;
+};
 
-const Video: React.FC<VideoProps> = ({url, title}) => {
+const Video: React.FC<VideoProps> = ({ url, title }) => {
   return (
     <Content>
-      <Thumbnail
-        src={url}
-        alt={title}
-      />
+      <Thumbnail src={url} alt={title} />
     </Content>
   );
 };

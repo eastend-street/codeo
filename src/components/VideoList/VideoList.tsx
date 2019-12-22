@@ -29,10 +29,19 @@ const VideoTitle = styled.h3`
   }
 `;
 
-const ChannelTitle = styled.p`
+const ChannelTitle = styled.span`
   font-size: 0.8rem;
   opacity: 0.7;
   margin: 0.2rem 0.5rem 0 0.5rem;
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+  }
+`;
+
+const ViewCount = styled.span`
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 0.2rem 0.5rem 0 0;
   @media (max-width: 600px) {
     font-size: 0.7rem;
   }
@@ -96,10 +105,11 @@ const VideoList: React.FC = () => {
     updateVideoDetail(videoDetail, dispatch);
   };
 
+  console.log(state.videos);
   return (
     <Content>
       <Grid container>
-        {state.videos.items.map((video: any, index: number) => {
+        {state.videos.map((video: any, index: number) => {
           return (
             <React.Fragment key={index}>
               <VideoGrid item xs={6} sm={4} md={3}>
@@ -109,7 +119,10 @@ const VideoList: React.FC = () => {
                     title={video.snippet.title}
                   />
                   <VideoTitle>{video.snippet.title}</VideoTitle>
-                  <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+                  <div>
+                    <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+                    <ViewCount>{video.statistics.viewCount} views</ViewCount>
+                  </div>
                 </WrapVideo>
               </VideoGrid>
               {renderVideoDetail(index, video)}

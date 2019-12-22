@@ -17,9 +17,7 @@ const StyledContainer = styled.div`
 
 const App: React.FC = () => {
   const initialState = {
-    videos: {
-      items: []
-    },
+    videos: [],
     videoDetail: {
       video: {},
       isVisible: false,
