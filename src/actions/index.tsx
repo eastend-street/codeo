@@ -41,14 +41,19 @@ const makeVideoIdList = (response: any) => {
 
 const addViewCountToVideos = async (response: any) => {
   const videoIdList = makeVideoIdList(response);
-  const videos = await getViewCount(videoIdList);
-  const result = response.data.items.map((video: any, index: number) => {
-    if (videos) {
-      return {...video, statistics: videos.data.items[index].statistics};
-    }
-    return video;
-  });
-  return result;
+  try {
+    const videos = await getViewCount(videoIdList);
+    const result = response.data.items.map((video: any, index: number) => {
+      if (videos) {
+        return { ...video, statistics: videos.data.items[index].statistics };
+      }
+      return video;
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+    return response;
+  }
 };
 
 export const getViewCount = async (videoIdList: []) => {
