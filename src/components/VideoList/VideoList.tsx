@@ -9,6 +9,8 @@ import VideoDetail from "../VideoDetail/VideoDetail";
 import { updateVideoDetail } from "../../actions";
 import Fade from "./Fade";
 
+import formatNumber from "../../utils/formatNumber";
+
 const Content = styled.div`
   /* margin-top: 1rem; */
 `;
@@ -29,10 +31,24 @@ const VideoTitle = styled.h3`
   }
 `;
 
-const ChannelTitle = styled.p`
+const WrapTitleViewCount = styled.div`
+  margin-left: 0.5rem;
+`;
+const ChannelTitle = styled.span`
   font-size: 0.8rem;
   opacity: 0.7;
-  margin: 0.2rem 0.5rem 0 0.5rem;
+  padding-right: 1rem;
+  @media (max-width: 960px) {
+    display: block;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+  }
+`;
+
+const ViewCount = styled.span`
+  font-size: 0.8rem;
+  opacity: 0.7;
   @media (max-width: 600px) {
     font-size: 0.7rem;
   }
@@ -99,7 +115,8 @@ const VideoList: React.FC = () => {
   return (
     <Content>
       <Grid container>
-        {state.videos.items.map((video: any, index: number) => {
+        {state.videos.map((video: any, index: number) => {
+          const viewCount = formatNumber(video.statistics.viewCount);
           return (
             <React.Fragment key={index}>
               <VideoGrid item xs={6} sm={4} md={3}>
@@ -109,7 +126,10 @@ const VideoList: React.FC = () => {
                     title={video.snippet.title}
                   />
                   <VideoTitle>{video.snippet.title}</VideoTitle>
-                  <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+                  <WrapTitleViewCount>
+                    <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+                    <ViewCount>{viewCount} views</ViewCount>
+                  </WrapTitleViewCount>
                 </WrapVideo>
               </VideoGrid>
               {renderVideoDetail(index, video)}
