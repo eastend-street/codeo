@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
+import formatNumber from "../../utils/formatNumber";
+import { ThumbUp, ThumbDown } from "@material-ui/icons";
 
 const VideoDetailGrid = styled(Grid)`
   && {
@@ -71,19 +73,56 @@ const VideoTitle = styled.h3`
 
 const ChannelTitle = styled.div`
   font-size: 1rem;
-  margin-bottom: 1rem;
   opacity: 0.7;
   @media (max-width: 960px) {
     font-size: 0.9rem;
-    margin-bottom: 0.5rem;
   }
 `;
+const Statistics = styled.div`
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+  @media (max-width: 960px) {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }
+`;
+
+const ViewCount = styled.span`
+  padding-right: 1rem;
+`;
+
+const LikeCount = styled.span`
+  padding-right: 1rem;
+`;
+
+const ThumbUpIcon = styled(ThumbUp)`
+  && {
+    font-size: 0.9rem;
+    padding-right: 0.2rem;
+    @media (max-width: 960px) {
+      font-size: 0.8rem;
+    }
+  }
+`;
+
+const ThumbDownIcon = styled(ThumbDown)`
+  && {
+    font-size: 0.9rem;
+    padding-right: 0.2rem;
+    @media (max-width: 960px) {
+      font-size: 0.8rem;
+    }
+  }
+`;
+
 const Description = styled.p`
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   opacity: 0.9;
   @media (max-width: 960px) {
     font-size: 0.9rem;
+    margin: 0.5rem 0;
   }
 `;
 
@@ -92,12 +131,24 @@ type VideoDetailProps = {
 };
 
 const VideoDetail = ({ video }: VideoDetailProps) => {
+  console.log(video.statistics);
   return (
     <VideoDetailGrid container>
       <VideoDescGrid item xs={12} sm={6}>
         <WrapVideoDesc>
           <VideoTitle>{video.snippet.title}</VideoTitle>
           <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+          {video.hasOwnProperty("statistics") && (
+            <Statistics>
+              <ViewCount>
+                {formatNumber(video.statistics.viewCount)} views{" "}
+              </ViewCount>
+              <ThumbUpIcon />
+              <LikeCount>{formatNumber(video.statistics.likeCount)}</LikeCount>
+              <ThumbDownIcon />
+              <span>{formatNumber(video.statistics.dislikeCount)}</span>
+            </Statistics>
+          )}
           <Description>{video.snippet.description}</Description>
         </WrapVideoDesc>
       </VideoDescGrid>

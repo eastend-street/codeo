@@ -128,7 +128,7 @@ const VideoList: React.FC = () => {
                     <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
                     {video.hasOwnProperty("statistics") && (
                       <ViewCount>
-                        {formatNumber(video.statistics.viewCount)}
+                        {formatNumber(video.statistics.viewCount)} views
                       </ViewCount>
                     )}
                   </WrapTitleViewCount>
