@@ -32,9 +32,19 @@ export const updateVideoDetail = (videoDetail: object, dispatch: any) => {
 };
 
 const addViewCountToVideos = async (response: any) => {
-  const videoIdList = makeVideoIdList(response);
+  const videoIdList = response.data.items.map((video: any) => {
+    return video.id.videoId;
+  });
   try {
-    const videos = await getViewCount(videoIdList);
+    const videos = await axios({
+      method: "get",
+      url: "https://www.googleapis.com/youtube/v3/videos",
+      params: {
+        id: videoIdList.join(","),
+        key: process.env.REACT_APP_YOUTUBE_API_KEY,
+        part: "statistics"
+      }
+    });
     const result = response.data.items.map((video: any, index: number) => {
       if (videos) {
         return { ...video, statistics: videos.data.items[index].statistics };
@@ -45,30 +55,5 @@ const addViewCountToVideos = async (response: any) => {
   } catch (error) {
     console.log(error);
     return response;
-  }
-};
-
-const makeVideoIdList = (response: any) => {
-  const videoIdList = response.data.items.map((video: any) => {
-    return video.id.videoId;
-  });
-  return videoIdList;
-};
-
-const getViewCount = async (videoIdList: []) => {
-  let response;
-  try {
-    response = await axios({
-      method: "get",
-      url: "https://www.googleapis.com/youtube/v3/videos",
-      params: {
-        id: videoIdList.join(","),
-        key: process.env.REACT_APP_YOUTUBE_API_KEY,
-        part: "statistics"
-      }
-    });
-    return response;
-  } catch (error) {
-    console.log(error);
   }
 };
