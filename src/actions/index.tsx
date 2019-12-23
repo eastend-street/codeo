@@ -1,6 +1,5 @@
 import axios from "axios";
 import getVideosFromJSON from "../utils/getVideosFromJSON";
-import videos from "../reducers/videos";
 export const GET_VIDEOS = "GET_VIDEOS";
 export const UPDATE_VIDEO_DETAIL = "UPDATE_VIDEO_DETAIL";
 export const GET_VIEW_COUNT = "GET_VIEW_COUNT";
@@ -32,13 +31,6 @@ export const updateVideoDetail = (videoDetail: object, dispatch: any) => {
   dispatch({ type: UPDATE_VIDEO_DETAIL, payload: videoDetail });
 };
 
-const makeVideoIdList = (response: any) => {
-  const videoIdList = response.data.items.map((video: any) => {
-    return video.id.videoId;
-  });
-  return videoIdList;
-};
-
 const addViewCountToVideos = async (response: any) => {
   const videoIdList = makeVideoIdList(response);
   try {
@@ -56,7 +48,14 @@ const addViewCountToVideos = async (response: any) => {
   }
 };
 
-export const getViewCount = async (videoIdList: []) => {
+const makeVideoIdList = (response: any) => {
+  const videoIdList = response.data.items.map((video: any) => {
+    return video.id.videoId;
+  });
+  return videoIdList;
+};
+
+const getViewCount = async (videoIdList: []) => {
   let response;
   try {
     response = await axios({

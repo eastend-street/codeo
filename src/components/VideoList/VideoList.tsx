@@ -111,12 +111,14 @@ const VideoList: React.FC = () => {
     };
     updateVideoDetail(videoDetail, dispatch);
   };
-
   return (
     <Content>
       <Grid container>
         {state.videos.map((video: any, index: number) => {
-          const viewCount = formatNumber(video.statistics.viewCount);
+          // console.log(video.hasOwnProperty("statistics"));
+          // const viewCount = (video.hasOwnProperty("statistics"))
+          //   ? formatNumber(video.statistics.viewCount)
+          //   : 0;
           return (
             <React.Fragment key={index}>
               <VideoGrid item xs={6} sm={4} md={3}>
@@ -128,7 +130,11 @@ const VideoList: React.FC = () => {
                   <VideoTitle>{video.snippet.title}</VideoTitle>
                   <WrapTitleViewCount>
                     <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
-                    <ViewCount>{viewCount} views</ViewCount>
+                    {video.hasOwnProperty("statistics") && (
+                      <ViewCount>
+                        {formatNumber(video.statistics.viewCount)}
+                      </ViewCount>
+                    )}
                   </WrapTitleViewCount>
                 </WrapVideo>
               </VideoGrid>
