@@ -9,28 +9,28 @@ import CarrerJSON from "../data/youtubeData/carrer.json";
 import PopularJSON from "../data/youtubeData/popular.json";
 
 const getVideosFromJSON = (param: string) => {
-    switch (param) {
-      case "react tutorial":
-        return ReactJSON;
-      case "HTML tutorial":
-        return HtmlJSON;
-      case "CSS tutorial":
-        return CssJSON;
-      case "JavaScript":
-        return JavaScriptJSON;
-      case "Python tutorial":
-        return PythonJSON;
-      case "Ruby tutorial":
-        return RubyJSON;
-      case "how to learn programming":
-        return HowToLearnJSON;
-      case "Carrer engineer":
-        return CarrerJSON;
-      case "programming":
-        return PopularJSON;
-      default:
-        return {};
-    }
-  };
-  
-  export default getVideosFromJSON;
+  switch (param) {
+    case "react tutorial":
+      return ReactJSON.data.items;
+    case "HTML tutorial":
+      return HtmlJSON.data.items;
+    case "CSS tutorial":
+      return CssJSON.data.items;
+    case "JavaScript":
+      return JavaScriptJSON.data.items;
+    case "Python tutorial":
+      return PythonJSON.data.items;
+    case "Ruby tutorial":
+      return RubyJSON.data.items;
+    case "how to learn programming":
+      return HowToLearnJSON.data.items;
+    case "Carrer engineer":
+      return CarrerJSON.data.items;
+    case "programming":
+      return PopularJSON.data.items;
+    default:
+      return {};
+  }
+};
+
+export default getVideosFromJSON;
