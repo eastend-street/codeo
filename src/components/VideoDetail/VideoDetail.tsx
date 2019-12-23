@@ -156,7 +156,7 @@ const VideoDetail = ({ video }: VideoDetailProps) => {
         <WrapVideo>
           <StyledIframe
             src={`https://www.youtube.com/embed/${video.id.videoId}`}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
             title={`${video.id.videoId}`}
           />
         </WrapVideo>
