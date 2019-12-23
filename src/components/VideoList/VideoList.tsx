@@ -115,10 +115,6 @@ const VideoList: React.FC = () => {
     <Content>
       <Grid container>
         {state.videos.map((video: any, index: number) => {
-          // console.log(video.hasOwnProperty("statistics"));
-          // const viewCount = (video.hasOwnProperty("statistics"))
-          //   ? formatNumber(video.statistics.viewCount)
-          //   : 0;
           return (
             <React.Fragment key={index}>
               <VideoGrid item xs={6} sm={4} md={3}>
