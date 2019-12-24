@@ -18,8 +18,5 @@ website: https://codeo.site
 - JavaScript
 - YouTube Data API
 
-# Function
-
-
 # Mockup
 
