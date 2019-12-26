@@ -25,7 +25,7 @@ const Header: React.FC = () => {
   return (
     <StyledAppBar position="static">
       <Toolbar>
-        <Logo variant="h6" component="h1">
+        <Logo variant="h6">
           Codeo
         </Logo>
       </Toolbar>
