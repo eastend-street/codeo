@@ -17,6 +17,3 @@ website: https://codeo.site
 - TypeScript
 - JavaScript
 - YouTube Data API
-
-# Mockup
-
