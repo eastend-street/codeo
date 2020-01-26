@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
 import formatNumber from "../../utils/formatNumber";
@@ -131,9 +131,15 @@ type VideoDetailProps = {
 };
 
 const VideoDetail = ({ video }: VideoDetailProps) => {
-  console.log(video.statistics);
+  useEffect(() => {
+    const videoDetailElement = document.getElementById("videoDetail");
+    videoDetailElement?.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
   return (
-    <VideoDetailGrid container>
+    <VideoDetailGrid container id="videoDetail">
       <VideoDescGrid item xs={12} sm={6}>
         <WrapVideoDesc>
           <VideoTitle>{video.snippet.title}</VideoTitle>
