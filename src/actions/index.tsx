@@ -9,7 +9,7 @@ export const getVideos = async (param: string, dispatch: any) => {
   let videoList: object[] = [];
   await axios({
     method: "get",
-    url: "https://www.googleapis.com/youtube/v3/search",
+    url: process.env.REACT_APP_API_URL_SEARCH,
     params: {
       q: param,
       key: process.env.REACT_APP_YOUTUBE_API_KEY,
@@ -36,7 +36,7 @@ const addViewCountToVideos = async (videoList: object[]) => {
   const videoIdList = videoList.map((video: any) => video.id.videoId);
   await axios({
     method: "get",
-    url: "https://www.googleapis.com/youtube/v3/videos",
+    url: process.env.REACT_APP_API_URL_GET_VIDEOS,
     params: {
       id: videoIdList.join(","),
       key: process.env.REACT_APP_YOUTUBE_API_KEY,
