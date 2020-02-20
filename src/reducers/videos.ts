@@ -1,9 +1,9 @@
 import { GET_VIDEOS } from "../actions";
 
-const videos = (state = [], action) => {
+const videos = (state = [], action: any) => {
   switch (action.type) {
     case GET_VIDEOS:
-      return action.response;
+      return action.payload;
     default:
       return state;
   }
