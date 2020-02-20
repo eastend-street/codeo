@@ -1,5 +1,6 @@
 import axios from "axios";
 import getVideosFromJSON from "../utils/getVideosFromJSON";
+
 export const GET_VIDEOS = "GET_VIDEOS";
 export const UPDATE_VIDEO_DETAIL = "UPDATE_VIDEO_DETAIL";
 export const GET_VIEW_COUNT = "GET_VIEW_COUNT";
@@ -18,7 +19,7 @@ export const getVideos = async (param: string, dispatch: any) => {
     }
   })
     .then(async res => {
-      videoList = await addViewCountToVideos(res);
+      videoList = await addViewCountToVideos(res.data.items);
     })
     .catch(error => {
       console.log(error);
@@ -31,29 +32,26 @@ export const updateVideoDetail = (videoDetail: object, dispatch: any) => {
   dispatch({ type: UPDATE_VIDEO_DETAIL, payload: videoDetail });
 };
 
-const addViewCountToVideos = async (response: any) => {
-  const videoIdList = response.data.items.map((video: any) => {
-    return video.id.videoId;
-  });
-  try {
-    const videos = await axios({
-      method: "get",
-      url: "https://www.googleapis.com/youtube/v3/videos",
-      params: {
-        id: videoIdList.join(","),
-        key: process.env.REACT_APP_YOUTUBE_API_KEY,
-        part: "statistics"
-      }
+const addViewCountToVideos = async (videoList: object[]) => {
+  const videoIdList = videoList.map((video: any) => video.id.videoId);
+  await axios({
+    method: "get",
+    url: "https://www.googleapis.com/youtube/v3/videos",
+    params: {
+      id: videoIdList.join(","),
+      key: process.env.REACT_APP_YOUTUBE_API_KEY,
+      part: "statistics"
+    }
+  })
+    .then(videos => {
+      return videoList.map((video: any, index: number) =>
+        videos
+          ? { ...video, statistics: videos.data.items[index].statistics }
+          : video
+      );
+    })
+    .catch(error => {
+      console.log(error);
     });
-    const result = response.data.items.map((video: any, index: number) => {
-      if (videos) {
-        return { ...video, statistics: videos.data.items[index].statistics };
-      }
-      return video;
-    });
-    return result;
-  } catch (error) {
-    console.log(error);
-    return response;
-  }
+  return videoList;
 };
