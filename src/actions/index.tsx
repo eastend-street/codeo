@@ -5,26 +5,26 @@ export const UPDATE_VIDEO_DETAIL = "UPDATE_VIDEO_DETAIL";
 export const GET_VIEW_COUNT = "GET_VIEW_COUNT";
 
 export const getVideos = async (param: string, dispatch: any) => {
-  let response;
-  try {
-    response = await axios({
-      method: "get",
-      url: "https://www.googleapis.com/youtube/v3/search",
-      params: {
-        q: param,
-        key: process.env.REACT_APP_YOUTUBE_API_KEY,
-        part: "snippet",
-        maxResults: 24,
-        type: "video"
-      }
+  let videoList: object[] = [];
+  await axios({
+    method: "get",
+    url: "https://www.googleapis.com/youtube/v3/search",
+    params: {
+      q: param,
+      key: process.env.REACT_APP_YOUTUBE_API_KEY,
+      part: "snippet",
+      maxResults: 24,
+      type: "video"
+    }
+  })
+    .then(async res => {
+      videoList = await addViewCountToVideos(res);
+    })
+    .catch(error => {
+      console.log(error);
+      videoList = getVideosFromJSON(param);
     });
-    // response = getVideosFromJSON(param);
-    response = await addViewCountToVideos(response);
-  } catch (error) {
-    console.log(error);
-    response = getVideosFromJSON(param);
-  }
-  dispatch({ type: GET_VIDEOS, response });
+  dispatch({ type: GET_VIDEOS, payload: videoList });
 };
 
 export const updateVideoDetail = (videoDetail: object, dispatch: any) => {

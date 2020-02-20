@@ -8,7 +8,7 @@ import HowToLearnJSON from "../data/youtubeData/howtolearn.json";
 import CarrerJSON from "../data/youtubeData/carrer.json";
 import PopularJSON from "../data/youtubeData/popular.json";
 
-const getVideosFromJSON = (param: string) => {
+const getVideosFromJSON = (param: string):object[] => {
   switch (param) {
     case "react tutorial":
       return ReactJSON.data.items;
@@ -29,7 +29,7 @@ const getVideosFromJSON = (param: string) => {
     case "programming":
       return PopularJSON.data.items;
     default:
-      return {};
+      return [];
   }
 };
 
