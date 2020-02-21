@@ -132,8 +132,7 @@ type VideoDetailProps = {
 
 const VideoDetail = ({ video }: VideoDetailProps) => {
   useEffect(() => {
-    const videoDetailElement = document.getElementById("videoDetail");
-    videoDetailElement?.scrollIntoView({
+    document.getElementById("videoDetail")?.scrollIntoView({
       behavior: "smooth",
       block: "center"
     });

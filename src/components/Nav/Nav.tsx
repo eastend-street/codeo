@@ -84,11 +84,10 @@ const Nav: React.FC = () => {
   const renderNav = () => {
     const navData: NavData[] = NavJSON;
     return navData.map((eachData: NavData, index) => {
-      const selected = index === selectedNav ? true : false;
       return (
         <NavLi key={index}>
           <StyledNavButton
-            selected={selected}
+            selected={index === selectedNav}
             onClick={e => handleOnClick(eachData.param, index, e.target)}
           >
             {eachData.title}
