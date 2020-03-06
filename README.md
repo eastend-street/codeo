@@ -17,3 +17,19 @@ website: https://codeo.site
 - TypeScript
 - JavaScript
 - YouTube Data API
+
+<br/>
+
+# Upcoming features
+- Put mask on other movies, when a movie is selected
+- Make sort function by date, views, upvote
+
+<br/>
+
+# Architecture
+writing...
+
+<br/>
+
+# License
+writing...
