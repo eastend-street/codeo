@@ -1,4 +1,4 @@
-# Codeo
+<h1>Codeo</h1>
 Codeo is a website to search programming video from YouTube.  
 
 website: https://codeo.site  
@@ -10,7 +10,12 @@ website: https://codeo.site
 
 <br/>
 
-# Technologies
+## Why I created this app
+To search programming video easily. Youtube has a lot of programming youtube but there is not category page for programming. That's why I made Codeo.
+
+<br/>
+
+## Technologies
 - React.js
 - React hooks
 - React Context API
@@ -20,17 +25,17 @@ website: https://codeo.site
 
 <br/>
 
-# Upcoming features
+## Architecture
+![codeo-architecture](https://user-images.githubusercontent.com/43656115/76172534-54701480-6154-11ea-8dd3-09b45f41d475.png)
+
+<br/>
+
+## Upcoming features
 - Put mask on other movies, when a movie is selected
 - Make sort function by date, views, upvote
 
 <br/>
 
-# Architecture
-![codeo-architecture](https://user-images.githubusercontent.com/43656115/76172534-54701480-6154-11ea-8dd3-09b45f41d475.png)
-
-<br/>
-
-# Author
+## Author
 [eastend-street](https://github.com/eastend-street)
 
