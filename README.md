@@ -30,6 +30,35 @@ To search programming video easily. Youtube has a lot of programming youtube but
 
 <br/>
 
+
+## Structure
+```
+src/
+ index.tsx
+ App.tsx
+ 
+ actions/  -----Actions to call API and dipatch data to Redux 
+   EACH-CATEGORY.ts/
+ 
+ components/
+   COMPONENT_NAME/
+    |-- COMPONENT_NAME.tsx  -----components with styled-components
+ 
+ constexts/ ----- Create React context API
+ 
+ reducers/  -----Get data from actions to send it to store 
+   EACH-CATEGORY.ts/
+ 
+ assets/
+  images/ 
+
+ data/  ----- Youtube video json data for failing to call API
+ 
+ utils/ ----- common functions
+```
+<br/>
+
+
 ## Upcoming features
 - Put mask on other movies, when a movie is selected
 - Make sort function by date, views, upvote
