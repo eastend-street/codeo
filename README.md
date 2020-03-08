@@ -31,6 +31,6 @@ website: https://codeo.site
 
 <br/>
 
-# Authore
+# Author
 [eastend-street](https://github.com/eastend-street)
 
