@@ -1,5 +1,5 @@
 <h1>Codeo</h1>
-Codeo is a website to search programming video from YouTube.  
+Codeo is a website to search programming video from YouTube📺
 
 website: https://codeo.site  
 
