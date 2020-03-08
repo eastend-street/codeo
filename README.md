@@ -37,6 +37,7 @@ I use Context API to provide state to child components at a lower level. Also, s
 
 ![app.tsx](https://user-images.githubusercontent.com/43656115/76173223-bfbce500-615a-11ea-9849-0c9774a3f8d5.png)
 
+<br/>
 
 ## Structure
 ```
