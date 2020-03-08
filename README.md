@@ -27,9 +27,10 @@ website: https://codeo.site
 <br/>
 
 # Architecture
-writing...
+![codeo-architecture](https://user-images.githubusercontent.com/43656115/76172534-54701480-6154-11ea-8dd3-09b45f41d475.png)
 
 <br/>
 
-# License
-writing...
+# Authore
+[eastend-street](https://github.com/eastend-street)
+
