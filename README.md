@@ -19,6 +19,7 @@ To search programming video easily. Youtube has a lot of programming youtube but
 - React.js
 - React hooks
 - React Context API
+- Redux
 - TypeScript
 - JavaScript
 - YouTube Data API
@@ -30,12 +31,18 @@ To search programming video easily. Youtube has a lot of programming youtube but
 
 <br/>
 
+## State management
+On this project, I adopted hybird of React hooks and Redux. Because it's going to be easier to manage state.
+I use Context API to provide state to child components at lower level. Also state is managed by Redux but I don't have to use `mapStateToProps` or `mapDispatchToProps`. Instead of those, using React hooks such as `useContext`.
+On App component, I defined `state` and `dispatch`, they are provided to child components using Context API. Then on child component, getting state using `useContext`.
+
+
+
 
 ## Structure
 ```
 src/
  index.tsx
- App.tsx
  
  actions/  -----Actions to call API and dipatch data to Redux 
    EACH-CATEGORY.ts/
@@ -44,7 +51,7 @@ src/
    COMPONENT_NAME/
     |-- COMPONENT_NAME.tsx  -----components with styled-components
  
- constexts/ ----- Create React context API
+ contexts/ ----- Create React context API
  
  reducers/  -----Get data from actions to send it to store 
    EACH-CATEGORY.ts/
