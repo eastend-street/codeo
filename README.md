@@ -26,6 +26,11 @@ To search programming video easily. Youtube has a lot of programming youtube but
 
 <br/>
 
+## UI
+![codeo-ui](https://user-images.githubusercontent.com/43656115/76177581-f3573980-6171-11ea-99e3-1a7d49c96a73.png)
+
+<br/>
+
 ## Architecture
 ![codeo-architecture](https://user-images.githubusercontent.com/43656115/76172534-54701480-6154-11ea-8dd3-09b45f41d475.png)
 
