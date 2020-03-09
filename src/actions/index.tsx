@@ -34,7 +34,7 @@ export const updateVideoDetail = (videoDetail: object, dispatch: any) => {
 
 const addViewCountToVideos = async (videoList: object[]) => {
   const videoIdList = videoList.map((video: any) => video.id.videoId);
-  await axios({
+  return await axios({
     method: "get",
     url: process.env.REACT_APP_API_URL_GET_VIDEOS,
     params: {
@@ -52,6 +52,6 @@ const addViewCountToVideos = async (videoList: object[]) => {
     })
     .catch(error => {
       console.log(error);
+      return videoList;
     });
-  return videoList;
 };
