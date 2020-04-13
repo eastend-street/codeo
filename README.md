@@ -1,4 +1,8 @@
-<h1>Codeo</h1>
+<h1>Codeo</h1>  
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a988417b-7170-4f7b-9ece-0bb06a035b38/deploy-status)](https://app.netlify.com/sites/keen-noyce-db7b77/deploys)
+[![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/npm)
+
 Codeo is a website to search programming video from YouTube📺
 
 website: https://codeo.site  
