@@ -1,74 +1,24 @@
-import React, { useContext } from "react";
-import AppContext from "../../contexts/AppContext";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import { Grid } from '@material-ui/core';
 
-import styled from "styled-components";
-import { Grid } from "@material-ui/core";
-import Video from "../Video/Video";
-import VideoDetail from "../VideoDetail/VideoDetail";
+import AppContext from 'contexts/AppContext';
+import { updateVideoDetail } from 'actions';
+import formatNumber from 'utils/formatNumber';
 
-import { updateVideoDetail } from "../../actions";
-import Fade from "./Fade";
-
-import formatNumber from "../../utils/formatNumber";
-
-const Content = styled.div`
-  /* margin-top: 1rem; */
-`;
-
-const WrapVideo = styled.div`
-  margin: 0 0.7rem;
-  cursor: pointer;
-`;
-
-const VideoTitle = styled.h3`
-  font-size: 0.9rem;
-  font-weight: bold;
-  line-height: 1.2rem;
-  margin: 0.5rem 0.5rem 0 0.5rem;
-  opacity: 0.9;
-  @media (max-width: 600px) {
-    font-size: 0.8rem;
-  }
-`;
-
-const WrapTitleViewCount = styled.div`
-  margin-left: 0.5rem;
-`;
-const ChannelTitle = styled.span`
-  font-size: 0.8rem;
-  opacity: 0.7;
-  padding-right: 1rem;
-  @media (max-width: 960px) {
-    display: block;
-  }
-  @media (max-width: 600px) {
-    font-size: 0.7rem;
-  }
-`;
-
-const ViewCount = styled.span`
-  font-size: 0.8rem;
-  opacity: 0.7;
-  @media (max-width: 600px) {
-    font-size: 0.7rem;
-  }
-`;
-
-const VideoGrid = styled(Grid)`
-  && {
-    margin: 1rem 0;
-  }
-`;
+import Video from 'components/Video';
+import VideoDetail from 'components/VideoDetail';
+import Fade from './Fade';
 
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
 
   const calcVideoColumnNum = () => {
-    if (matchMedia("(max-width: 599px)").matches) {
+    if (matchMedia('(max-width: 599px)').matches) {
       return 2;
-    } else if (matchMedia("(max-width: 959px)").matches) {
+    } else if (matchMedia('(max-width: 959px)').matches) {
       return 3;
-    } else if (matchMedia("(max-width: 1279px)").matches) {
+    } else if (matchMedia('(max-width: 1279px)').matches) {
       return 4;
     } else {
       return 4;
@@ -126,7 +76,7 @@ const VideoList: React.FC = () => {
                   <VideoTitle>{video.snippet.title}</VideoTitle>
                   <WrapTitleViewCount>
                     <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
-                    {video.hasOwnProperty("statistics") && (
+                    {video.hasOwnProperty('statistics') && (
                       <ViewCount>
                         {formatNumber(video.statistics.viewCount)} views
                       </ViewCount>
@@ -144,3 +94,52 @@ const VideoList: React.FC = () => {
 };
 
 export default VideoList;
+
+const Content = styled.div`
+  /* margin-top: 1rem; */
+`;
+
+const WrapVideo = styled.div`
+  margin: 0 0.7rem;
+  cursor: pointer;
+`;
+
+const VideoTitle = styled.h3`
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  opacity: 0.9;
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+`;
+
+const WrapTitleViewCount = styled.div`
+  margin-left: 0.5rem;
+`;
+const ChannelTitle = styled.span`
+  font-size: 0.8rem;
+  opacity: 0.7;
+  padding-right: 1rem;
+  @media (max-width: 960px) {
+    display: block;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+  }
+`;
+
+const ViewCount = styled.span`
+  font-size: 0.8rem;
+  opacity: 0.7;
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+  }
+`;
+
+const VideoGrid = styled(Grid)`
+  && {
+    margin: 1rem 0;
+  }
+`;

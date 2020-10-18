@@ -1,5 +1,18 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+
+type VideoProps = {
+  url: string;
+  title: string;
+};
+
+const Video: React.FC<VideoProps> = ({ url, title }) => (
+  <Content>
+    <Thumbnail src={url} alt={title} />
+  </Content>
+);
+
+export default Video;
 
 const Content = styled.div`
   transition: 1s;
@@ -15,18 +28,3 @@ const Thumbnail = styled.img`
     cursor: pointer;
   }
 `;
-
-type VideoProps = {
-  url: string;
-  title: string;
-};
-
-const Video: React.FC<VideoProps> = ({ url, title }) => {
-  return (
-    <Content>
-      <Thumbnail src={url} alt={title} />
-    </Content>
-  );
-};
-
-export default Video;

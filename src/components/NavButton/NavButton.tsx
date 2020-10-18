@@ -1,10 +1,16 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 type NavButtonProps = {
   label: string;
   // link: string;
 };
+
+const NavButton: React.FC<NavButtonProps> = props => {
+  return <StyledNavButton>{props.label}</StyledNavButton>;
+};
+
+export default NavButton;
 
 const StyledNavButton = styled.div`
   padding: 0 1rem 0.5rem 1rem;
@@ -15,9 +21,3 @@ const StyledNavButton = styled.div`
     cursor: pointer;
   }
 `;
-
-const NavButton: React.FC<NavButtonProps> = props => {
-  return <StyledNavButton>{props.label}</StyledNavButton>;
-};
-
-export default NavButton;

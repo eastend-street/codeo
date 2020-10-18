@@ -1,54 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect, useContext } from 'react';
+import styled from 'styled-components';
 
-import AppContext from "../../contexts/AppContext";
-import { getVideos, updateVideoDetail } from "../../actions";
+import AppContext from 'contexts/AppContext';
+import { getVideos, updateVideoDetail } from 'actions';
 
-import NavJSON from "../../data/nav.json";
-
-const Container = styled.div`
-  position: relative;
-`;
-
-const NavUl = styled.ul`
-  display: flex;
-  white-space: nowrap;
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
-const NavLi = styled.li`
-  padding: 0.5rem 1rem;
-`;
-
-const Underline = styled.span<{ underlineLeft: number }>`
-  background: #fff;
-  height: 0.1rem;
-  display: block;
-  position: absolute;
-  left: ${props => props.underlineLeft}px;
-  bottom: 0;
-  width: 2rem;
-  transition: 0.4s;
-  @media (max-width: 920px) {
-    display: none;
-  }
-`;
-
-const StyledNavButton = styled.div<{ selected: boolean }>`
-  margin: 0 0.5rem;
-  /* border: ${props =>
-    props.selected ? "0.0625rem solid #fff" : "0.0625rem solid #fff"}; */
-  border-radius: 1rem;
-  opacity: ${props => (props.selected ? "1" : "0.5")};
-  transition: 0.7s;
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-`;
+import NavJSON from 'data/nav.json';
 
 type NavData = {
   title: string;
@@ -61,7 +17,7 @@ const Nav: React.FC = () => {
   const { dispatch } = useContext(AppContext);
 
   useEffect(() => {
-    getVideos("react tutorial", dispatch);
+    getVideos('react tutorial', dispatch);
   }, [dispatch]);
 
   const handleOnClick = (param: string, index: number, element: any) => {
@@ -75,7 +31,7 @@ const Nav: React.FC = () => {
     const videoDetail = {
       video: {},
       isVisible: false,
-      videoId: "",
+      videoId: '',
       rowNum: 0
     };
     updateVideoDetail(videoDetail, dispatch);
@@ -106,3 +62,47 @@ const Nav: React.FC = () => {
 };
 
 export default Nav;
+
+const Container = styled.div`
+  position: relative;
+`;
+
+const StyledNavButton = styled.div<{ selected: boolean }>`
+  margin: 0 0.5rem;
+  /* border: ${props =>
+    props.selected ? '0.0625rem solid #fff' : '0.0625rem solid #fff'}; */
+  border-radius: 1rem;
+  opacity: ${props => (props.selected ? '1' : '0.5')};
+  transition: 0.7s;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+`;
+
+const NavUl = styled.ul`
+  display: flex;
+  white-space: nowrap;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+const NavLi = styled.li`
+  padding: 0.5rem 1rem;
+`;
+
+const Underline = styled.span<{ underlineLeft: number }>`
+  background: #fff;
+  height: 0.1rem;
+  display: block;
+  position: absolute;
+  left: ${props => props.underlineLeft}px;
+  bottom: 0;
+  width: 2rem;
+  transition: 0.4s;
+  @media (max-width: 920px) {
+    display: none;
+  }
+`;

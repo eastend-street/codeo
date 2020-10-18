@@ -1,8 +1,55 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { Grid } from "@material-ui/core";
-import formatNumber from "../../utils/formatNumber";
-import { ThumbUp, ThumbDown } from "@material-ui/icons";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { Grid } from '@material-ui/core';
+import { ThumbUp, ThumbDown } from '@material-ui/icons';
+
+import formatNumber from 'utils/formatNumber';
+
+type VideoDetailProps = {
+  video: any;
+};
+
+const VideoDetail = ({ video }: VideoDetailProps) => {
+  useEffect(() => {
+    document.getElementById('videoDetail')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  });
+  return (
+    <VideoDetailGrid container id="videoDetail">
+      <VideoDescGrid item xs={12} sm={6}>
+        <WrapVideoDesc>
+          <VideoTitle>{video.snippet.title}</VideoTitle>
+          <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+          {video.hasOwnProperty('statistics') && (
+            <Statistics>
+              <ViewCount>
+                {formatNumber(video.statistics.viewCount)} views{' '}
+              </ViewCount>
+              <ThumbUpIcon />
+              <LikeCount>{formatNumber(video.statistics.likeCount)}</LikeCount>
+              <ThumbDownIcon />
+              <span>{formatNumber(video.statistics.dislikeCount)}</span>
+            </Statistics>
+          )}
+          <Description>{video.snippet.description}</Description>
+        </WrapVideoDesc>
+      </VideoDescGrid>
+      <VideoGrid item xs={12} sm={6}>
+        <WrapVideo>
+          <StyledIframe
+            src={`https://www.youtube.com/embed/${video.id.videoId}`}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            title={`${video.id.videoId}`}
+          />
+        </WrapVideo>
+      </VideoGrid>
+    </VideoDetailGrid>
+  );
+};
+
+export default VideoDetail;
 
 const VideoDetailGrid = styled(Grid)`
   && {
@@ -125,49 +172,3 @@ const Description = styled.p`
     margin: 0.5rem 0;
   }
 `;
-
-type VideoDetailProps = {
-  video: any;
-};
-
-const VideoDetail = ({ video }: VideoDetailProps) => {
-  useEffect(() => {
-    document.getElementById("videoDetail")?.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-  });
-  return (
-    <VideoDetailGrid container id="videoDetail">
-      <VideoDescGrid item xs={12} sm={6}>
-        <WrapVideoDesc>
-          <VideoTitle>{video.snippet.title}</VideoTitle>
-          <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
-          {video.hasOwnProperty("statistics") && (
-            <Statistics>
-              <ViewCount>
-                {formatNumber(video.statistics.viewCount)} views{" "}
-              </ViewCount>
-              <ThumbUpIcon />
-              <LikeCount>{formatNumber(video.statistics.likeCount)}</LikeCount>
-              <ThumbDownIcon />
-              <span>{formatNumber(video.statistics.dislikeCount)}</span>
-            </Statistics>
-          )}
-          <Description>{video.snippet.description}</Description>
-        </WrapVideoDesc>
-      </VideoDescGrid>
-      <VideoGrid item xs={12} sm={6}>
-        <WrapVideo>
-          <StyledIframe
-            src={`https://www.youtube.com/embed/${video.id.videoId}`}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-            title={`${video.id.videoId}`}
-          />
-        </WrapVideo>
-      </VideoGrid>
-    </VideoDetailGrid>
-  );
-};
-
-export default VideoDetail;

@@ -1,19 +1,13 @@
-import React, { useReducer } from "react";
-import styled from "styled-components";
-import AppContext from "../../contexts/AppContext";
-import reducer from "../../reducers";
+import React, { useReducer } from 'react';
+import styled from 'styled-components';
+import { Reset } from 'styled-reset';
 
-import { Reset } from "styled-reset";
-import Main from "../Main/Main";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
+import AppContext from 'contexts/AppContext';
+import reducer from 'reducers';
 
-const StyledContainer = styled.div`
-  font-family: sans-serif;
-  color: #fff;
-  background-color: #232c3b;
-  /* background-color: #000; */
-`;
+import Main from 'components/Main';
+import Footer from '../Footer';
+import Header from '../Header';
 
 const App: React.FC = () => {
   const initialState = {
@@ -21,7 +15,7 @@ const App: React.FC = () => {
     videoDetail: {
       video: {},
       isVisible: false,
-      videoId: "",
+      videoId: '',
       rowNum: 0
     }
   };
@@ -40,3 +34,10 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+const StyledContainer = styled.div`
+  font-family: sans-serif;
+  color: #fff;
+  background-color: #232c3b;
+  /* background-color: #000; */
+`;

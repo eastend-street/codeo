@@ -1,8 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import React from 'react';
+import styled from 'styled-components';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+
+const Header: React.FC = () => (
+  <StyledAppBar position="static">
+    <Toolbar>
+      <Logo variant="h6">Codeo</Logo>
+    </Toolbar>
+  </StyledAppBar>
+);
+
+export default Header;
 
 const StyledAppBar = styled(AppBar)`
   && {
@@ -17,20 +25,6 @@ const Logo = styled(Typography)`
   && {
     font-size: 1.5rem;
     /* color: #ffcb00; */
-    font-weight:bold;
+    font-weight: bold;
   }
 `;
-
-const Header: React.FC = () => {
-  return (
-    <StyledAppBar position="static">
-      <Toolbar>
-        <Logo variant="h6">
-          Codeo
-        </Logo>
-      </Toolbar>
-    </StyledAppBar>
-  );
-};
-
-export default Header;
