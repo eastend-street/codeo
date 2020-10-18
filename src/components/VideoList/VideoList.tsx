@@ -64,42 +64,36 @@ const VideoList: React.FC = () => {
     updateVideoDetail(videoDetail, dispatch);
   };
   return (
-    <Content>
-      <Grid container>
-        {state.videos.map((video: any, index: number) => {
-          return (
-            <React.Fragment key={index}>
-              <VideoGrid item xs={6} sm={4} md={3}>
-                <WrapVideo onClick={() => toggleVideoDetail(video, index)}>
-                  <Video
-                    url={video.snippet.thumbnails.medium.url}
-                    title={video.snippet.title}
-                  />
-                  <VideoTitle>{video.snippet.title}</VideoTitle>
-                  <WrapTitleViewCount>
-                    <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
-                    {video.hasOwnProperty('statistics') && (
-                      <ViewCount>
-                        {formatNumber(video.statistics.viewCount)} views
-                      </ViewCount>
-                    )}
-                  </WrapTitleViewCount>
-                </WrapVideo>
-              </VideoGrid>
-              {renderVideoDetail(index, video)}
-            </React.Fragment>
-          );
-        })}
-      </Grid>
-    </Content>
+    <Grid container>
+      {state.videos.map((video: any, index: number) => {
+        return (
+          <React.Fragment key={index}>
+            <VideoGrid item xs={6} sm={4} md={3}>
+              <WrapVideo onClick={() => toggleVideoDetail(video, index)}>
+                <Video
+                  url={video.snippet.thumbnails.medium.url}
+                  title={video.snippet.title}
+                />
+                <VideoTitle>{video.snippet.title}</VideoTitle>
+                <WrapTitleViewCount>
+                  <ChannelTitle>{video.snippet.channelTitle}</ChannelTitle>
+                  {video.hasOwnProperty('statistics') && (
+                    <ViewCount>
+                      {formatNumber(video.statistics.viewCount)} views
+                    </ViewCount>
+                  )}
+                </WrapTitleViewCount>
+              </WrapVideo>
+            </VideoGrid>
+            {renderVideoDetail(index, video)}
+          </React.Fragment>
+        );
+      })}
+    </Grid>
   );
 };
 
 export default VideoList;
-
-const Content = styled.div`
-  /* margin-top: 1rem; */
-`;
 
 const WrapVideo = styled.div`
   margin: 0 0.7rem;
