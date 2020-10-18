@@ -3,41 +3,35 @@ import styled from 'styled-components';
 import { Reset } from 'styled-reset';
 
 import AppContext from 'contexts/AppContext';
+import initialState from 'contexts/initialState';
 import reducer from 'reducers';
 
-import Main from 'components/Main';
-import Footer from '../Footer';
-import Header from '../Header';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import Nav from 'components/Nav';
+import VideoList from 'components/VideoList';
+
+import GlobalStyle from 'styles/GlobalStyle';
 
 const App: React.FC = () => {
-  const initialState = {
-    videos: [],
-    videoDetail: {
-      video: {},
-      isVisible: false,
-      videoId: '',
-      rowNum: 0
-    }
-  };
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <Reset />
-      <StyledContainer>
+      <GlobalStyle />
+      <Container>
         <Header />
-        <Main />
+        <Nav />
+        <VideoList />
         <Footer />
-      </StyledContainer>
+      </Container>
     </AppContext.Provider>
   );
 };
 
 export default App;
 
-const StyledContainer = styled.div`
-  font-family: sans-serif;
-  color: #fff;
-  background-color: #232c3b;
-  /* background-color: #000; */
+const Container = styled.div`
+  min-height: 85vh;
 `;

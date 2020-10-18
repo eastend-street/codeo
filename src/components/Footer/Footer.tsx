@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Footer: React.FC = () => (
-  <StyledFooter>
+  <Container>
     <Copyright>&copy; Codeo All rights reserved.</Copyright>
-  </StyledFooter>
+  </Container>
 );
 
 export default Footer;
 
-const StyledFooter = styled.footer`
+const Container = styled.footer`
   height: 10vh;
   display: flex;
   justify-content: center;

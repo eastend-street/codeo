@@ -1,4 +1,4 @@
-import { UPDATE_VIDEO_DETAIL } from "../actions";
+import { UPDATE_VIDEO_DETAIL } from "actions";
 
 const videoDetail = (state = {}, action: any) => {
   switch (action.type) {

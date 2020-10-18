@@ -6,13 +6,13 @@ type NavButtonProps = {
   // link: string;
 };
 
-const NavButton: React.FC<NavButtonProps> = props => {
-  return <StyledNavButton>{props.label}</StyledNavButton>;
-};
+const NavButton: React.FC<NavButtonProps> = props => (
+  <Container>{props.label}</Container>
+);
 
 export default NavButton;
 
-const StyledNavButton = styled.div`
+const Container = styled.div`
   padding: 0 1rem 0.5rem 1rem;
   opacity: 0.5;
   transition: 0.7s;

@@ -7,21 +7,20 @@ type VideoProps = {
 };
 
 const Video: React.FC<VideoProps> = ({ url, title }) => (
-  <Content>
+  <Container>
     <Thumbnail src={url} alt={title} />
-  </Content>
+  </Container>
 );
 
 export default Video;
 
-const Content = styled.div`
+const Container = styled.div`
   transition: 1s;
 `;
 
 const Thumbnail = styled.img`
   width: 100%;
   height: 100%;
-  /* max-height: 10rem; */
   object-fit: cover;
   position: relative;
   &:hover {

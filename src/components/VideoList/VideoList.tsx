@@ -10,6 +10,8 @@ import Video from 'components/Video';
 import VideoDetail from 'components/VideoDetail';
 import Fade from './Fade';
 
+import mq from 'styles/mediaQuery';
+
 const VideoList: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
 
@@ -110,7 +112,7 @@ const VideoTitle = styled.h3`
   line-height: 1.2rem;
   margin: 0.5rem 0.5rem 0 0.5rem;
   opacity: 0.9;
-  @media (max-width: 600px) {
+  ${mq('xs')} {
     font-size: 0.8rem;
   }
 `;
@@ -122,10 +124,10 @@ const ChannelTitle = styled.span`
   font-size: 0.8rem;
   opacity: 0.7;
   padding-right: 1rem;
-  @media (max-width: 960px) {
+  ${mq('sm')} {
     display: block;
   }
-  @media (max-width: 600px) {
+  ${mq('xs')} {
     font-size: 0.7rem;
   }
 `;
@@ -133,7 +135,7 @@ const ChannelTitle = styled.span`
 const ViewCount = styled.span`
   font-size: 0.8rem;
   opacity: 0.7;
-  @media (max-width: 600px) {
+  ${mq('xs')} {
     font-size: 0.7rem;
   }
 `;

@@ -4,12 +4,7 @@ import styled from 'styled-components';
 import AppContext from 'contexts/AppContext';
 import { getVideos, updateVideoDetail } from 'actions';
 
-import NavJSON from 'data/nav.json';
-
-type NavData = {
-  title: string;
-  param: string;
-};
+import NAV_DATA from 'constants/nav';
 
 const Nav: React.FC = () => {
   const [selectedNav, setSelectedNav] = useState(0);
@@ -37,21 +32,17 @@ const Nav: React.FC = () => {
     updateVideoDetail(videoDetail, dispatch);
   };
 
-  const renderNav = () => {
-    const navData: NavData[] = NavJSON;
-    return navData.map((eachData: NavData, index) => {
-      return (
-        <NavLi key={index}>
-          <StyledNavButton
-            selected={index === selectedNav}
-            onClick={e => handleOnClick(eachData.param, index, e.target)}
-          >
-            {eachData.title}
-          </StyledNavButton>
-        </NavLi>
-      );
-    });
-  };
+  const renderNav = () =>
+    NAV_DATA.map((nav, index) => (
+      <NavLi key={index}>
+        <StyledNavButton
+          selected={index === selectedNav}
+          onClick={e => handleOnClick(nav.param, index, e.target)}
+        >
+          {nav.title}
+        </StyledNavButton>
+      </NavLi>
+    ));
 
   return (
     <Container>
@@ -69,8 +60,6 @@ const Container = styled.div`
 
 const StyledNavButton = styled.div<{ selected: boolean }>`
   margin: 0 0.5rem;
-  /* border: ${props =>
-    props.selected ? '0.0625rem solid #fff' : '0.0625rem solid #fff'}; */
   border-radius: 1rem;
   opacity: ${props => (props.selected ? '1' : '0.5')};
   transition: 0.7s;
