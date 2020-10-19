@@ -1,4 +1,14 @@
-const initialState = {
+interface InitialState {
+  videos: object[];
+  videoDetail: {
+    video: object;
+    isVisible: boolean;
+    videoId: string;
+    rowNum: number;
+  };
+}
+
+const initialState: InitialState = {
   videos: [],
   videoDetail: {
     video: {},

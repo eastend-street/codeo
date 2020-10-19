@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type NavButtonProps = {
+interface NavButtonProps {
   label: string;
-  // link: string;
-};
+}
 
 const NavButton: React.FC<NavButtonProps> = props => (
   <Container>{props.label}</Container>

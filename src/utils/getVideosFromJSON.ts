@@ -10,9 +10,9 @@ import {
   ruby
 } from 'constants/youtubeData';
 
-type VideosMap = {
+interface VideosMap {
   [key: string]: object[];
-};
+}
 
 const videosMap: VideosMap = {
   'react tutorial': react.data.items,

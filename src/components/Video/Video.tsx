@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type VideoProps = {
+interface VideoProps {
   url: string;
   title: string;
-};
+}
 
 const Video: React.FC<VideoProps> = ({ url, title }) => (
   <Container>

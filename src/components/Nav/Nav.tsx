@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import AppContext from 'contexts/AppContext';
 import { getVideos, updateVideoDetail } from 'actions';
-
 import NAV_DATA from 'constants/nav';
+import mq from 'styles/mediaQuery';
 
 const Nav: React.FC = () => {
   const [selectedNav, setSelectedNav] = useState(0);
@@ -91,7 +91,7 @@ const Underline = styled.span<{ underlineLeft: number }>`
   bottom: 0;
   width: 2rem;
   transition: 0.4s;
-  @media (max-width: 920px) {
+  ${mq('sm')} {
     display: none;
   }
 `;

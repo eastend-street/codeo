@@ -7,7 +7,7 @@ import formatNumber from 'utils/formatNumber';
 
 import mq from 'styles/mediaQuery';
 
-type VideoDetailProps = {
+interface VideoDetailProps {
   video: any;
 };
 
