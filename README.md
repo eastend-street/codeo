@@ -14,7 +14,7 @@ website: https://codeo.netlify.app/
 <br/>
 
 ## Why I created this app
-To search programming video easily. Youtube has a lot of programming youtube but there is not category page for programming. That's why I made Codeo.
+To search programming videos easily. YouTube has a lot of programming videos but there is no category page for programming. That's why I made Codeo.
 
 <br/>
 
@@ -40,13 +40,6 @@ To search programming video easily. Youtube has a lot of programming youtube but
 
 <br/>
 
-## State management
-On this project, I adopted a **hybrid of React hooks and Redux**. Because it's going to be easier to manage state.  
-I use Context API to provide state to child components at a lower level. Also, state is managed by Redux but I don't have to use `mapStateToProps` or `mapDispatchToProps`. Instead of those, using React hooks such as `useContext`. On the App component, I defined `state` and `dispatch`, they are provided to child components using Context API. Then on a child component, getting state using `useContext`.
-
-![app.tsx](https://user-images.githubusercontent.com/43656115/76173223-bfbce500-615a-11ea-9849-0c9774a3f8d5.png)
-
-<br/>
 
 ## Structure
 ```
@@ -76,8 +69,8 @@ src/
 
 
 ## Upcoming features
-- Put mask on other movies, when a movie is selected
-- Make sort function by date, views, upvote
+- Put mask on other movies when a movie is selected
+- Make sort function by date, views, and upvotes
 
 <br/>
 
