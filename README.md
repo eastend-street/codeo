@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a988417b-7170-4f7b-9ece-0bb06a035b38/deploy-status)](https://app.netlify.com/sites/keen-noyce-db7b77/deploys)
 
-Codeo is a website to search programming video from YouTube📺
+Codeo is a website where you can search for programming videos from Youtube📺
 
 website: https://codeo.netlify.app/
 
