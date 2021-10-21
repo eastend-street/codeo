@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
       }
     }
+    --content-max-width: 1280px;
   }
 `;
 

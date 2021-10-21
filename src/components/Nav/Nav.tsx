@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import styled from 'styled-components';
 
 import AppContext from 'contexts/AppContext';
@@ -10,6 +10,7 @@ const Nav: React.FC = () => {
   const [selectedNav, setSelectedNav] = useState(0);
   const [underlineLeft, setUnderlineLeft] = useState(28.89);
   const { dispatch } = useContext(AppContext);
+  const containerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
     getVideos('react tutorial', dispatch);
@@ -17,7 +18,8 @@ const Nav: React.FC = () => {
 
   const handleOnClick = (param: string, index: number, element: any) => {
     setSelectedNav(index);
-    const left = element.getBoundingClientRect().left;
+    const parentLeft = containerRef.current.getBoundingClientRect().left;
+    const left = element.getBoundingClientRect().left - parentLeft;
     const width = element.getBoundingClientRect().width;
     setUnderlineLeft(left + width / 2 - 16);
     getVideos(param, dispatch);
@@ -27,7 +29,7 @@ const Nav: React.FC = () => {
       video: {},
       isVisible: false,
       videoId: '',
-      rowNum: 0
+      rowNum: 0,
     };
     updateVideoDetail(videoDetail, dispatch);
   };
@@ -35,17 +37,14 @@ const Nav: React.FC = () => {
   const renderNav = () =>
     NAV_DATA.map((nav, index) => (
       <NavLi key={index}>
-        <StyledNavButton
-          selected={index === selectedNav}
-          onClick={e => handleOnClick(nav.param, index, e.target)}
-        >
+        <StyledNavButton selected={index === selectedNav} onClick={(e) => handleOnClick(nav.param, index, e.target)}>
           {nav.title}
         </StyledNavButton>
       </NavLi>
     ));
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       <NavUl>{renderNav()}</NavUl>
       <Underline underlineLeft={underlineLeft} />
     </Container>
@@ -61,7 +60,7 @@ const Container = styled.div`
 const StyledNavButton = styled.div<{ selected: boolean }>`
   margin: 0 0.5rem;
   border-radius: 1rem;
-  opacity: ${props => (props.selected ? '1' : '0.5')};
+  opacity: ${(props) => (props.selected ? '1' : '0.5')};
   transition: 0.7s;
   &:hover {
     opacity: 1;
@@ -87,7 +86,7 @@ const Underline = styled.span<{ underlineLeft: number }>`
   height: 0.1rem;
   display: block;
   position: absolute;
-  left: ${props => props.underlineLeft}px;
+  left: ${(props) => props.underlineLeft}px;
   bottom: 0;
   width: 2rem;
   transition: 0.4s;

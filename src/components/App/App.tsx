@@ -34,4 +34,6 @@ export default App;
 
 const Container = styled.div`
   min-height: 85vh;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
 `;
