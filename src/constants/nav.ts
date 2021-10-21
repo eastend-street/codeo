@@ -28,7 +28,7 @@ const NAV = [
     param: 'how to learn programming'
   },
   {
-    title: 'Career Paths',
+    title: 'Career paths',
     param: 'developer career path '
   },
   {
