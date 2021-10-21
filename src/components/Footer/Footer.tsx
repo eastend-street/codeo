@@ -1,7 +1,15 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-const StyledFooter = styled.footer`
+const Footer: React.FC = () => (
+  <Container>
+    <Copyright>&copy; Codeo All rights reserved.</Copyright>
+  </Container>
+);
+
+export default Footer;
+
+const Container = styled.footer`
   height: 10vh;
   display: flex;
   justify-content: center;
@@ -12,13 +20,3 @@ const Copyright = styled.p`
   text-align: center;
   opacity: 0.5;
 `;
-
-const Footer: React.FC = () => {
-  return (
-    <StyledFooter>
-      <Copyright>&copy; Codeo All rights reserved.</Copyright>
-    </StyledFooter>
-  );
-};
-
-export default Footer;
