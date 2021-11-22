@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
-import { ThumbUp, ThumbDown } from '@material-ui/icons';
+import { ThumbUp } from '@material-ui/icons';
 
 import formatNumber from 'utils/formatNumber';
 
@@ -9,13 +9,13 @@ import mq from 'styles/mediaQuery';
 
 interface VideoDetailProps {
   video: any;
-};
+}
 
 const VideoDetail = ({ video }: VideoDetailProps) => {
   useEffect(() => {
     document.getElementById('videoDetail')?.scrollIntoView({
       behavior: 'smooth',
-      block: 'center'
+      block: 'center',
     });
   });
   return (
@@ -27,12 +27,10 @@ const VideoDetail = ({ video }: VideoDetailProps) => {
           {video.hasOwnProperty('statistics') && (
             <Statistics>
               <ViewCount>
-                {formatNumber(video.statistics.viewCount)} views{' '}
+                {formatNumber(video.statistics.viewCount)} views
               </ViewCount>
               <ThumbUpIcon />
               <LikeCount>{formatNumber(video.statistics.likeCount)}</LikeCount>
-              <ThumbDownIcon />
-              <span>{formatNumber(video.statistics.dislikeCount)}</span>
             </Statistics>
           )}
           <Description>{video.snippet.description}</Description>
@@ -129,6 +127,8 @@ const ChannelTitle = styled.div`
   }
 `;
 const Statistics = styled.div`
+  display: flex;
+  align-items: center;
   font-size: 0.9rem;
   margin-top: 0.5rem;
   opacity: 0.7;
@@ -148,21 +148,8 @@ const LikeCount = styled.span`
 
 const ThumbUpIcon = styled(ThumbUp)`
   && {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding-right: 0.2rem;
-    ${mq('sm')} {
-      font-size: 0.8rem;
-    }
-  }
-`;
-
-const ThumbDownIcon = styled(ThumbDown)`
-  && {
-    font-size: 0.9rem;
-    padding-right: 0.2rem;
-    ${mq('sm')} {
-      font-size: 0.8rem;
-    }
   }
 `;
 
